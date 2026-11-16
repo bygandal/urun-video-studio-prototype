@@ -45,7 +45,7 @@ svg.i{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.7;stro
 .top-title{font-family:var(--h);font-weight:600;font-size:15px}
 .bnav{position:fixed;left:12px;right:12px;bottom:max(12px,env(safe-area-inset-bottom));z-index:40;height:68px;border-radius:22px;display:flex;align-items:center;justify-content:space-around;
   background:rgba(20,20,26,.72);backdrop-filter:blur(22px) saturate(140%);-webkit-backdrop-filter:blur(22px) saturate(140%);border:1px solid var(--line2);box-shadow:0 20px 50px -20px rgba(0,0,0,.8)}
-.bnav a{display:flex;flex-direction:column;align-items:center;gap:3px;font-size:10.5px;font-weight:500;color:var(--dim);width:60px;transition:color .2s}
+.bnav a{display:flex;flex-direction:column;align-items:center;gap:3px;font-size:10px;font-weight:500;color:var(--dim);width:64px;white-space:nowrap;transition:color .2s}
 .bnav a.on{color:var(--text)}
 .bnav a.on svg{stroke:var(--acc)}
 .bnav .plus{width:52px;height:52px;border-radius:17px;display:grid;place-items:center;margin-top:-4px;background:linear-gradient(140deg,var(--acc2),var(--acc));color:var(--onAcc);box-shadow:0 10px 28px -8px var(--accGlow),inset 0 1px 0 rgba(255,255,255,.4)}
@@ -440,6 +440,73 @@ html[data-theme=lime] .ring3d{border-color:rgba(198,244,50,.6);border-right-colo
   body.flow .main{padding-bottom:140px}
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* ===== v2 additions ===== */
+.only-d{display:none!important}
+@media (min-width:960px){.only-m{display:none!important}.only-d{display:revert!important}.only-d.btn{display:inline-flex!important}}
+.side .newb{background:var(--panel2);border:1px solid rgba(var(--accRGB),.35);color:var(--text);box-shadow:none}
+.side .newb svg{stroke:var(--acc)}
+.bnav .plus{background:var(--panel2)!important;border:1.5px solid rgba(var(--accRGB),.6);box-shadow:0 0 18px -6px rgba(var(--accRGB),.6)!important}
+.bnav .plus svg{stroke:var(--acc)!important}
+.sumcard{padding:18px}
+.sumcard .chips2{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.sumcard .chips2>span{font-size:12.5px;padding:5px 10px;border-radius:999px;background:var(--bg2);border:1px solid var(--line);color:#d8d8dc}
+.pricebox{margin-top:16px;padding:16px;border-radius:16px;background:var(--bg2);border:1px solid var(--line2)}
+.pricebox .big{font-family:var(--h);font-size:26px;font-weight:600;letter-spacing:-.02em}
+.pricebox .big b{color:var(--acc)}
+.pricebox .sm{font-size:13px;color:var(--muted);margin-top:2px}
+.free{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px;background:var(--acc);color:var(--onAcc)}
+.free svg{width:14px;height:14px;stroke:var(--onAcc)}
+.warnbox{display:flex;gap:12px;align-items:flex-start;padding:14px;border-radius:14px;background:rgba(251,191,36,.07);border:1px solid rgba(251,191,36,.25);font-size:13.5px;color:#f3e2b4;margin-top:12px}
+.warnbox svg{color:var(--warn);width:20px;height:20px;margin-top:1px}
+.errbox{display:flex;gap:12px;align-items:flex-start;padding:16px;border-radius:16px;background:rgba(248,113,113,.07);border:1px solid rgba(248,113,113,.25);margin-top:16px}
+.errbox>svg{color:var(--err);width:22px;height:22px;margin-top:1px}
+.toggle-h{display:flex;align-items:center;gap:10px;justify-content:space-between;width:100%;padding:16px 18px;border-radius:var(--r);background:var(--panel);border:1px solid var(--line);font-weight:600;font-size:14.5px;white-space:nowrap;margin-top:12px}
+.toggle-h svg.ch{transition:transform .25s var(--ease)}
+.toggle-h.open svg.ch{transform:rotate(90deg)}
+.qgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.qcard{text-align:left;padding:14px;border-radius:16px;background:var(--bg2);border:1.5px solid var(--line);transition:all .2s var(--ease);position:relative}
+.qcard.on{border-color:var(--acc);background:linear-gradient(180deg,rgba(var(--accRGB),.10),rgba(var(--accRGB),.02))}
+.qcard h4{font-size:15px}
+.qcard p{font-size:12px;color:var(--muted);margin-top:2px;line-height:1.4;min-height:34px}
+.qcard .qc{margin-top:8px;font-size:13px;font-weight:600}
+.qcard .rec{position:absolute;right:10px;top:12px}
+.adv{margin-top:12px;padding:14px;border-radius:14px;background:var(--bg2);border:1px dashed var(--line2)}
+.adv .ar2{display:flex;justify-content:space-between;font-size:12.5px;padding:5px 0;color:var(--muted)}
+.adv .ar2 span:last-child{color:var(--dim)}
+.verwarn{font-size:12.5px;color:#f3e2b4;margin-top:8px;display:flex;gap:6px;align-items:flex-start}
+.verwarn svg{width:15px;height:15px;color:var(--warn);margin-top:1px}
+.modal{position:fixed;inset:0;z-index:90;display:grid;place-items:end center;background:rgba(0,0,0,.6);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);animation:fade .2s}
+@keyframes fade{from{opacity:0}}
+.modal .box{width:min(100%,440px);margin:12px;padding:22px;border-radius:24px;background:#141416;border:1px solid var(--line2);box-shadow:0 30px 80px -20px #000;animation:in .3s var(--ease)}
+@media (min-width:600px){.modal{place-items:center}}
+.modal h3{font-size:19px}
+.modal p{color:var(--muted);font-size:14px;margin:8px 0 18px}
+.modal .acts2{display:grid;grid-template-columns:1fr 1.4fr;gap:10px}
+body.auth .side,body.auth .bnav,body.auth #top{display:none}
+.auth-wrap{max-width:440px;margin:4vh auto 0}
+.auth-wrap .brand{justify-content:center;margin-bottom:22px}
+.divider{display:flex;align-items:center;gap:12px;color:var(--dim);font-size:12px;margin:16px 0 4px}
+.divider::before,.divider::after{content:"";flex:1;height:1px;background:var(--line2)}
+.check{display:flex;gap:10px;align-items:flex-start;font-size:12.5px;color:var(--muted);margin-top:14px;cursor:pointer}
+.check input{accent-color:var(--acc);width:18px;height:18px;margin-top:1px;flex:none}
+.benefits{display:grid;gap:8px;margin:16px 0 4px}
+.benefits div{display:flex;gap:8px;font-size:13.5px;color:#d8d8dc}
+.benefits svg{width:17px;height:17px;color:var(--acc);stroke-width:2.4}
+.pill-free{display:flex;align-items:center;gap:6px;padding:7px 12px;border-radius:999px;background:rgba(var(--accRGB),.12);border:1px solid rgba(var(--accRGB),.35);font-weight:600;font-size:12.5px;color:var(--acc2)}
+.pill-free svg{width:15px;height:15px}
+.credit-pill.flash{animation:flash 1.2s var(--ease)}
+@keyframes flash{30%{box-shadow:0 0 0 4px rgba(var(--accRGB),.35);transform:scale(1.06)}}
+.empty{text-align:center;padding:28px 16px}
+.empty .ic{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;margin:0 auto 10px;background:var(--accSoft);color:var(--acc)}
+.share3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.share3 .btn{padding:0 6px;font-size:13.5px;min-width:0}
+.share3 .btn svg{width:17px;height:17px}
+.acts,.share,.share3{min-width:0}
+.del>div{min-width:0}
+.btn.wa{background:#0f2a1c;border:1px solid #1f5a3a;color:#e9fff1}
+.note{font-size:12px;color:var(--dim);line-height:1.5}
+.plan .yr{font-size:13px;color:var(--muted)}
 </style>
 </head>
 <body>
@@ -451,6 +518,7 @@ html[data-theme=lime] .ring3d{border-color:rgba(198,244,50,.6);border-right-colo
 <div id="bar"></div>
 <div class="dev" id="dev"><button aria-label="Prototip ekranları" data-a="dev"><svg class="i" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></button><div class="menu" id="devmenu"></div></div>
 <div class="toast" id="toast"></div>
+<div id="modal"></div>
 <script>
 const P={
  home:'<path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/>',
@@ -491,6 +559,10 @@ const P={
  box:'<path d="m3 7 9-4 9 4v10l-9 4-9-4z"/><path d="m3 7 9 4 9-4M12 11v10"/>',
  tag:'<path d="M3 12V4a1 1 0 0 1 1-1h8l9 9-9 9z"/><circle cx="8" cy="8" r="1.5"/>',
  phone:'<rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/>',
+ gift:'<rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13M19 12v8a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1v-8M7.5 8a2.5 2.5 0 0 1 0-5C10 3 12 8 12 8s2-5 4.5-5a2.5 2.5 0 0 1 0 5"/>',
+ wa:'<path d="M3 21l1.7-5A8.5 8.5 0 1 1 8 19.3z"/><path d="M9 9.5c.3 2.2 2.3 4.2 4.5 4.6l1-1.1 2 .9c-.2 1.3-1.3 2.1-2.6 2-3.3-.4-6.3-3.4-6.6-6.7 0-1.3.8-2.4 2-2.6l1 2z"/>',
+ mail:'<rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m3 7 9 6 9-6"/>',
+ sliders:'<path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12M20 18h0"/><circle cx="16" cy="6" r="2"/><circle cx="10" cy="12" r="2"/><circle cx="18" cy="18" r="2"/>',
  star:'<path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/>',
 };
 const ic=n=>`<svg class="i" viewBox="0 0 24 24">${P[n]||''}</svg>`;
@@ -540,19 +612,27 @@ function art(kind='kupa',pal='ocean',mode='full'){
   return `<svg class="art" viewBox="${vb}" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">${bg}${p}</svg>`;
 }
 
+/* ===== Marka adı: tek yerden değiştir ===== */
+const BRAND='Ürün Video Stüdyo';
+document.title=BRAND+' — Prototip';
+
+/* Kalite seviyeleri. ps = iç hesap (kredi/sn, 720p) — arayüzde gösterilmez. */
 const MODELS=[
- {id:'eko',tier:'Ekonomik',name:'MiniMax H3 Lite',ps:1.6,lv:1,d:'Hızlı ve uygun. Deneme ve günlük paylaşımlar için ideal.'},
- {id:'den',tier:'Dengeli',name:'Gemini Omni Flash',ps:2.8,lv:2,d:'Fiyat ve kalite dengesi. Çoğu ürün için önerilen seçim.'},
- {id:'kal',tier:'Kaliteli',name:'Kling 4.0',ps:6.4,lv:3,d:'Daha gerçekçi ışık, doku ve hareket.'},
- {id:'pre',tier:'Premium',name:'Seedance 2.5',ps:9.4,lv:4,d:'Reklam filmi kalitesi, en detaylı sonuç.'}
+ {id:'eko',tier:'Uygun',ps:1.6,d:'Daha hızlı üretir, deneme için iyi.',eng:'MiniMax H3 Lite'},
+ {id:'den',tier:'Önerilen',ps:2.8,d:'Çoğu ürün için yeter.',eng:'Gemini Omni Flash'},
+ {id:'kal',tier:'Daha net',ps:6.4,d:'Işık ve doku daha net.',eng:'Kling 4.0'},
+ {id:'pre',tier:'En gerçekçi',ps:9.4,d:'Reklam filmi gibi, en detaylı.',eng:'Seedance 2.5'}
 ];
 const RES={'480p':.7,'720p':1,'1080p':2.6};
+const RESL={'480p':'480p • Hızlı','720p':'720p • HD','1080p':'1080p • Full HD'};
+const ARL={'9:16':'Dikey (9:16)','1:1':'Kare (1:1)','16:9':'Yatay (16:9)'};
+const MUSL={yok:'Yok',enerjik:'Enerjik',sakin:'Sakin',luks:'Lüks'};
 const STYLES=[
- {id:'tanitim',t:'Ürün Tanıtımı',d:'Ürünü yakın çekim, şık açılarla gösterir.',i:'star',pal:'ocean',k:'kupa'},
- {id:'ugc',t:'UGC',sub:'Kullanıcı videosu',d:'Gerçek bir müşteri anlatıyormuş gibi, samimi.',i:'phone',pal:'terra',k:'canta'},
- {id:'kutu',t:'Kutu Açılışı',d:'Paketten çıkış heyecanını yaşatır.',i:'box',pal:'sand',k:'mum'},
+ {id:'ugc',t:'Müşteri gibi anlat',sub:'Samimi yorum',d:'Bir müşteri ürününü anlatıyormuş gibi. Instagram ve TikTok’ta bu tarz daha çok izleniyor.',i:'phone',pal:'terra',k:'canta'},
+ {id:'tanitim',t:'Ürün tanıtımı',d:'Ürünü yakın çekim, şık açılarla gösterir.',i:'star',pal:'ocean',k:'kupa'},
+ {id:'kutu',t:'Kutu açılışı',d:'Paketten çıkış heyecanını yaşatır.',i:'box',pal:'sand',k:'mum'},
  {id:'kampanya',t:'Kampanya',d:'İndirimi ve fırsatı öne çıkarır.',i:'tag',pal:'rose',k:'parfum'},
- {id:'tv',t:'TV Reklamı',d:'Sinematik, güçlü müzikli reklam filmi.',i:'tv',pal:'plum',k:'kolye'}
+ {id:'tv',t:'TV reklamı',d:'Daha gösterişli durur; ürünün net görünmesi için iyi fotoğraf gerekir.',i:'tv',pal:'plum',k:'kolye'}
 ];
 const VOICES=[
  {id:'elif',n:'Elif',d:'Kadın • sıcak',c:'linear-gradient(140deg,var(--acc2),var(--acc))'},
@@ -561,94 +641,115 @@ const VOICES=[
  {id:'yok',n:'Sessiz',d:'Seslendirme yok',c:'linear-gradient(140deg,#5a5a66,#33333b)'}
 ];
 const VIDEOS=[
- {t:'Seramik Kupa – Okyanus',s:'Ürün Tanıtımı',k:'kupa',p:'ocean',st:'ok',dur:'15 sn',when:'Bugün 10:42'},
- {t:'Örgü Tote Çanta',s:'UGC',k:'canta',p:'terra',st:'run',dur:'20 sn',when:'Bugün 09:15'},
- {t:'Soya Mum – Lavanta',s:'Kutu Açılışı',k:'mum',p:'sage',st:'ok',dur:'12 sn',when:'Dün'},
+ {t:'Seramik Kupa – Okyanus',s:'Ürün tanıtımı',k:'kupa',p:'ocean',st:'ok',dur:'15 sn',when:'Bugün 10:42'},
+ {t:'Örgü Tote Çanta',s:'Müşteri gibi anlat',k:'canta',p:'terra',st:'run',dur:'20 sn',when:'Bugün 09:15'},
+ {t:'Soya Mum – Lavanta',s:'Kutu açılışı',k:'mum',p:'sage',st:'ok',dur:'12 sn',when:'Dün'},
  {t:'Gül Parfüm 50 ml',s:'Kampanya',k:'parfum',p:'rose',st:'ok',dur:'10 sn',when:'Dün'},
- {t:'Gümüş Damla Kolye',s:'TV Reklamı',k:'kolye',p:'plum',st:'err',dur:'30 sn',when:'12 Kas'},
- {t:'Kum Rengi Kupa Seti',s:'UGC',k:'kupa',p:'sand',st:'ok',dur:'15 sn',when:'10 Kas'},
- {t:'Amber Mum',s:'Ürün Tanıtımı',k:'mum',p:'terra',st:'ok',dur:'8 sn',when:'8 Kas'},
+ {t:'Gümüş Damla Kolye',s:'TV reklamı',k:'kolye',p:'plum',st:'err',dur:'30 sn',when:'12 Kas'},
+ {t:'Kum Rengi Kupa Seti',s:'Müşteri gibi anlat',k:'kupa',p:'sand',st:'ok',dur:'15 sn',when:'10 Kas'},
+ {t:'Amber Mum',s:'Ürün tanıtımı',k:'mum',p:'terra',st:'ok',dur:'8 sn',when:'8 Kas'},
  {t:'Mor Kadife Çanta',s:'Kampanya',k:'canta',p:'plum',st:'ok',dur:'15 sn',when:'5 Kas'},
- {t:'Okyanus Parfüm',s:'TV Reklamı',k:'parfum',p:'ocean',st:'ok',dur:'20 sn',when:'2 Kas'},
- {t:'Yeşil Taş Kolye',s:'UGC',k:'kolye',p:'sage',st:'ok',dur:'12 sn',when:'1 Kas'}
+ {t:'Okyanus Parfüm',s:'TV reklamı',k:'parfum',p:'ocean',st:'ok',dur:'20 sn',when:'2 Kas'},
+ {t:'Yeşil Taş Kolye',s:'Müşteri gibi anlat',k:'kolye',p:'sage',st:'ok',dur:'12 sn',when:'1 Kas'}
 ];
+/* ÖRNEK tarifeler (KDV dahil varsayımı). Kontrol: Önerilen 15 sn ≈ 1,05 USD ≈ ₺53 model maliyeti (1 USD ≈ ₺50,39),
+   içteki 42 model kredisi → kredi başı maliyet ≈ ₺1,26. En ucuz kredi (İşletme yıllık) ≈ ₺1,91 > maliyet. */
+const PLANS=[
+ {id:'baslangic',n:'Başlangıç',p:799,k:300,f:['Tüm kalite seçenekleri','Türkçe ve İngilizce ses','Video oluşmazsa otomatik iade']},
+ {id:'pro',n:'Pro',p:1999,k:800,pop:1,f:['Tüm kalite seçenekleri','Öncelikli üretim sırası','Video oluşmazsa otomatik iade']},
+ {id:'isletme',n:'İşletme',p:4499,k:2000,f:['Tüm kalite seçenekleri','Öncelikli üretim ve destek','Video oluşmazsa otomatik iade']}
+];
+const PACKS=[{k:100,b:0,p:299},{k:300,b:30,p:799},{k:1000,b:200,p:2499}];
+const YEAR_OFF=.15, REF_COST=48, PACK_RATE=299/100;
 const S={
- balance:1240, link:'', fetched:false, fetching:false, tab:'link', uploads:[],
+ user:{name:'Harun',full:'Harun Gök',store:'Gök Seramik'}, plan:'pro', balance:412, free:false, newUser:false,
+ link:'', fetched:false, fetching:false, linkErr:false, tab:'link', uploads:[],
  product:{title:'El Yapımı Seramik Kupa – Okyanus Mavisi, 350 ml',desc:'Tamamen el yapımı, sırlı seramik kupa. Bulaşık makinesinde yıkanabilir. Her parça tek ve özeldir; renk tonları hafif farklılık gösterebilir.',price:'289,90',src:'Trendyol'},
- img:0, style:'ugc', brief:'', briefChips:[],
+ img:0, style:'ugc', brief:'', briefChips:[], open:false, adv:false,
  model:'den', dur:15, res:'720p', ar:'9:16', lang:'tr', voice:'elif', subs:true, music:'enerjik', ver:1,
- prog:0, phase:0, timer:null, curVer:0, filter:'all', billing:'ay'
+ prog:0, phase:0, timer:null, curVer:0, filter:'all', billing:'ay', job:null, lastCost:0
 };
-const price=()=>{const m=MODELS.find(x=>x.id===S.model);let c=m.ps*RES[S.res]*S.dur;if(S.voice!=='yok')c+=4;if(S.music!=='yok')c+=2;return Math.round(c)*S.ver};
-const tl=c=>(c*0.78).toLocaleString('tr-TR',{maximumFractionDigits:0});
-const fmt=n=>n.toLocaleString('tr-TR');
+const fmt=n=>Math.round(n).toLocaleString('tr-TR');
 const esc=s=>String(s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;');
-
-const NAV=[['panel','Panel','home'],['gecmis','Videolarım','film'],['urun','Yeni','plus'],['kredi','Kredi','coin'],['profil','Hesap','user']];
-const FLOW=['urun','stil','ayarlar','senaryo','uretim','teslim','hata'];
-const SCREENS=[['panel','Panel','1'],['urun','Ürün girişi','2'],['stil','Stil seçimi','3'],['ayarlar','Ayarlar + fiyat','4'],['senaryo','Senaryo onayı','5'],['uretim','Üretim durumu','6'],['teslim','Teslim','7'],['hata','Teslim – hata (iade)','7b'],['gecmis','Geçmiş','8'],['kredi','Kredi & abonelik','9']];
-
+const planOf=()=>PLANS.find(p=>p.id===S.plan);
+const rate=()=>{const p=planOf();return p?p.p/p.k:PACK_RATE};
+const rateLbl=()=>planOf()?planOf().n+' planında':'Paket kredisiyle';
+const rawPrice=(m=S.model)=>{const x=MODELS.find(y=>y.id===m);let c=x.ps*RES[S.res]*S.dur;if(S.voice!=='yok')c+=4;if(S.music!=='yok')c+=2;return Math.round(c)*S.ver};
+const freeOk=()=>S.free&&['eko','den'].includes(S.model)&&S.dur<=15&&S.res!=='1080p'&&S.ver===1;
+const cost=()=>freeOk()?0:rawPrice();
+const short=()=>!freeOk()&&cost()>S.balance;
+const tl=c=>fmt(c*rate());
+const vids=b=>Math.floor(b/REF_COST);
+function priceHTML(){
+ if(freeOk()) return `<div class="big">Bu video <b>ücretsiz</b></div><div class="sm">İlk videon bizden. Normalde ${rawPrice()} kredi.</div>`;
+ const c=cost();
+ return `<div class="big">Bu video <b class="js-c">${c}</b> kredi</div><div class="sm">${rateLbl()} ≈ ₺<span class="js-tl">${tl(c)}</span> • Bakiyen ${fmt(S.balance)} kredi</div>`;
+}
+const SCREENS=[['panel','Ana sayfa','1'],['urun','Ürün girişi','2'],['urun?durum=linkhata','↳ Link okunamadı','2b'],['stil','Stil seçimi','3'],['ayarlar','Ayarlar + fiyat','4'],['ayarlar?durum=kredi','↳ Yetersiz kredi','4b'],['senaryo','Senaryo onayı','5'],['uretim','Üretim durumu','6'],['teslim','Teslim','7'],['hata','Teslim – hata (iade)','7b'],['gecmis','Geçmiş','8'],['kredi','Kredi & abonelik','9'],['kayit','Kayıt (ilk video ücretsiz)','10']];
 const THEMES=[
- {id:'lime',n:'Gece + Limon',d:'Midnight Black • Lime',sw:['#0b0b0c','#ffffff','#c6f432']},
- {id:'cobalt',n:'Kobalt + Lavanta',d:'Cobalt • Lavender • Tropical Lime',sw:['#010102','#ad96f1','#58f6b1']},
- {id:'glass',n:'Cam & Krom',d:'Buzlu cam • nane ışıltısı',sw:['#1b2026','#c9d3dc','#7cf5d4']},
- {id:'ember',n:'Kor (ilk sürüm)',d:'Siyah • turuncu',sw:['#09090b','#a99bff','#ff7a45']}
+ {id:'lime',n:'Gece + Limon',sw:['#0b0b0c','#ffffff','#c6f432']},
+ {id:'cobalt',n:'Kobalt + Lavanta',sw:['#010102','#ad96f1','#58f6b1']},
+ {id:'glass',n:'Cam & Krom',sw:['#1b2026','#c9d3dc','#7cf5d4']},
+ {id:'ember',n:'Kor (ilk sürüm)',sw:['#09090b','#a99bff','#ff7a45']}
 ];
-function setTheme(t){document.documentElement.dataset.theme=t;try{localStorage.setItem('uvs-theme',t)}catch(e){}
+function setTheme(t){document.documentElement.dataset.theme=t;try{localStorage.setItem('uvs-theme-v2',t)}catch(e){}
  const mc={lime:'#0b0b0c',cobalt:'#010102',glass:'#08090b',ember:'#09090b'}[t];document.querySelector('meta[name=theme-color]').setAttribute('content',mc)}
-(function(){const q=new URLSearchParams(location.search).get('tema');let t=q;try{t=t||localStorage.getItem('uvs-theme')}catch(e){}setTheme(THEMES.some(x=>x.id===t)?t:'lime')})();
-function themePicker(){const cur=document.documentElement.dataset.theme;
- return `<div class="tpick" id="tpick"><button class="tbtn" data-a="tpick" aria-label="Tema seç"><i></i></button><div class="tmenu"><p>Tema</p>${THEMES.map(t=>`<button class="${cur===t.id?'on':''}" data-a="theme" data-v="${t.id}"><span class="sw">${t.sw.map(c=>`<b style="background:${c}"></b>`).join('')}</span><span>${t.n}<small>${t.d}</small></span></button>`).join('')}</div></div>`}
-function heroVis(){return `<div class="hero-vis" aria-hidden="true"><div class="ring3d"></div><div class="sph a"></div><div class="sph b"></div><div class="sph c"></div></div>
- <svg class="chrome" viewBox="0 0 600 200" preserveAspectRatio="none" aria-hidden="true" style="display:var(--chromeOn,none)"><defs><linearGradient id="chr" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".95"/><stop offset=".18" stop-color="#8d98a3"/><stop offset=".35" stop-color="#e9eef2"/><stop offset=".55" stop-color="#3b434b"/><stop offset=".72" stop-color="#c3ccd4"/><stop offset="1" stop-color="#15191d"/></linearGradient><linearGradient id="chr2" x1="0" x2="1"><stop offset="0" stop-color="#7cf5d4" stop-opacity="0"/><stop offset=".6" stop-color="#7cf5d4" stop-opacity=".55"/><stop offset="1" stop-color="#7cf5d4" stop-opacity="0"/></linearGradient></defs>
- <path d="M0 120 C120 40 240 180 360 110 S540 60 600 90 L600 200 L0 200Z" fill="url(#chr)"/><path d="M0 120 C120 40 240 180 360 110 S540 60 600 90" fill="none" stroke="url(#chr2)" stroke-width="3"/>
- <path d="M0 160 C140 110 260 200 400 150 S560 130 600 140 L600 200 L0 200Z" fill="url(#chr)" opacity=".75"/></svg>`}
+(function(){const q=new URLSearchParams(location.search).get('tema');let t=q;try{t=t||localStorage.getItem('uvs-theme-v2')}catch(e){}setTheme(THEMES.some(x=>x.id===t)?t:'lime')})();
+function heroVis(){return `<div class="hero-vis" aria-hidden="true"><div class="ring3d"></div><div class="sph a"></div><div class="sph b"></div><div class="sph c"></div></div>`}
 const LOGO=`<span class="logo"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg></span>`;
+const NAV=[['panel','Ana sayfa','home'],['gecmis','Videolarım','film'],['urun','Yeni','plus'],['kredi','Kredi','coin'],['profil','Hesabım','user']];
+const FLOW=['urun','stil','ayarlar','senaryo','uretim','teslim','hata'];
 function shell(r){
   const active = r==='kredi'?'kredi':r==='gecmis'?'gecmis':r==='profil'?'profil':FLOW.includes(r)?'urun':'panel';
-  document.getElementById('side').innerHTML=`<a class="brand" href="#/panel">${LOGO}Ürün Video Stüdyo</a>
-   <a class="btn p w newb" href="#/urun">${ic('plus')}Yeni video</a>
-   <nav>${NAV.filter(n=>n[0]!=='urun').map(n=>`<a href="#/${n[0]}" class="${active===n[0]?'on':''}">${ic(n[2])}${n[1]==='Hesap'?'Hesabım':n[1]}</a>`).join('')}</nav>
-   <div class="foot"><div class="mini"><div class="row between"><span class="small muted">Pro plan</span><span class="tag acc">Aktif</span></div>
+  const p=planOf();
+  document.getElementById('side').innerHTML=`<a class="brand" href="#/panel">${LOGO}${BRAND}</a>
+   <a class="btn w newb" href="#/urun">${ic('plus')}Yeni video</a>
+   <nav>${NAV.filter(n=>n[0]!=='urun').map(n=>`<a href="#/${n[0]}" class="${active===n[0]?'on':''}">${ic(n[2])}${n[1]}</a>`).join('')}</nav>
+   <div class="foot"><div class="mini"><div class="row between"><span class="small muted">${p?p.n+' plan':'Deneme'}</span><span class="tag acc">${S.free?'İlk video ücretsiz':'Aktif'}</span></div>
    <div style="font-family:var(--h);font-size:22px;font-weight:600;margin:8px 0 2px">${fmt(S.balance)} <span class="small muted" style="font-family:var(--b);font-weight:500">kredi</span></div>
-   <div class="meter" style="margin:10px 0 6px"><i style="width:62%"></i></div><div class="small dim">Yenilenme: 1 Aralık</div></div>
-   <div class="row" style="margin-top:14px;padding:0 6px"><div style="width:34px;height:34px;border-radius:50%;background:linear-gradient(140deg,#3a3a46,#22222a);display:grid;place-items:center;font-weight:600;font-size:12px;border:1px solid var(--line2)">HG</div><div><div style="font-size:13.5px;font-weight:600">Harun Gök</div><div class="small dim">Gök Seramik</div></div></div></div>`;
+   <div class="small dim">${S.free?'Krediye gerek yok':'≈ '+vids(S.balance)+' video • 1 Aralık’ta yenilenir'}</div></div>
+   <div class="row" style="margin-top:14px;padding:0 6px"><div style="width:34px;height:34px;border-radius:50%;background:linear-gradient(140deg,#3a3a46,#22222a);display:grid;place-items:center;font-weight:600;font-size:12px;border:1px solid var(--line2)">${esc(S.user.full.split(' ').map(x=>x[0]).join('').slice(0,2))}</div><div><div style="font-size:13.5px;font-weight:600">${esc(S.user.full)}</div><div class="small dim">${esc(S.user.store)}</div></div></div></div>`;
   document.getElementById('bnav').innerHTML=NAV.map(n=>n[0]==='urun'?`<a href="#/urun" aria-label="Yeni video"><span class="plus">${ic('plus')}</span></a>`:`<a href="#/${n[0]}" class="${active===n[0]?'on':''}">${ic(n[2])}${n[1]}</a>`).join('');
-  document.getElementById('devmenu').innerHTML='<p>Prototip ekranları</p>'+SCREENS.map(s=>`<a href="#/${s[0]}" class="${r===s[0]?'on':''}">${s[1]}<i>${s[2]}</i></a>`).join('')+'<p style="margin-top:6px">Tema</p>'+THEMES.map(t=>`<a href="javascript:void 0" data-a="theme" data-v="${t.id}" class="${document.documentElement.dataset.theme===t.id?'on':''}">${t.n}<i style="display:flex;gap:3px">${t.sw.map(c=>`<b style="width:9px;height:9px;border-radius:50%;background:${c};border:1px solid #333"></b>`).join('')}</i></a>`).join('');
+  const th=document.documentElement.dataset.theme;
+  document.getElementById('devmenu').innerHTML='<p>Prototip ekranları</p>'+SCREENS.map(s=>`<a href="#/${s[0]}" class="${r===s[0]?'on':''}">${s[1]}<i>${s[2]}</i></a>`).join('')+'<a href="tanitim.html">Tanıtım sayfası<i>↗</i></a><p style="margin-top:6px">Tema (prototip)</p>'+THEMES.map(t=>`<a href="javascript:void 0" data-a="theme" data-v="${t.id}" class="${th===t.id?'on':''}">${t.n}<i style="display:flex;gap:3px">${t.sw.map(c=>`<b style="width:9px;height:9px;border-radius:50%;background:${c};border:1px solid #333"></b>`).join('')}</i></a>`).join('');
   document.body.classList.toggle('flow',FLOW.includes(r));
+  document.body.classList.toggle('auth',r==='kayit');
 }
+function pill(){return S.free&&S.balance===0?`<a class="pill-free" href="#/kredi">${ic('gift')}1 ücretsiz video</a>`:`<a class="credit-pill" id="cpill" href="#/kredi"><span class="dot"></span>${fmt(S.balance)}</a>`}
 function topbar(title,backTo){
-  const right=`<div class="right">${themePicker()}<a class="credit-pill" href="#/kredi"><span class="dot"></span>${fmt(S.balance)}</a></div>`;
-  if(!title) return `<a class="brand" href="#/panel">${LOGO}Ürün Video Stüdyo</a><span style="flex:1"></span>${right}`;
+  const right=`<div class="right">${pill()}</div>`;
+  if(!title) return `<a class="brand" href="#/panel">${LOGO}${BRAND}</a><span style="flex:1"></span>${right}`;
   return `<a class="back" href="#/${backTo}" aria-label="Geri">${ic('back')}</a><div class="top-title">${title}</div>${right}`;
 }
 const steps=i=>`<div class="step-lbl">Adım ${i+1} / 4</div><div class="steps">${[0,1,2,3].map(k=>`<i class="${k<=i?'on':''}"></i>`).join('')}</div>`;
 function bar(h,sum){document.getElementById('bar').innerHTML=h?`<div class="bar ${sum?'has-sum':''}"><div class="in">${h}</div></div>`:''}
+function modal(h){document.getElementById('modal').innerHTML=h?`<div class="modal" data-a="mclose"><div class="box">${h}</div></div>`:''}
 const V={};
 function thumb(v){
- const st=v.st==='ok'?'':v.st==='run'?`<span class="st tag acc">Üretiliyor</span>`:`<span class="st tag err">İade edildi</span>`;
+ const st=v.st==='ok'?'':v.st==='run'?`<span class="st tag acc">Üretiliyor</span>`:`<span class="st tag err">Kredi geri yüklendi</span>`;
  return `<div class="vthumb" data-a="go" data-v="${v.st==='err'?'hata':v.st==='run'?'uretim':'teslim'}"><div class="fr">${art(v.k,v.p)}${st}<div class="ov"><span>${v.dur}</span><span style="opacity:.8">${v.s}</span></div></div><h4>${v.t}</h4><p>${v.when}</p></div>`;
 }
 V.panel=()=>{ bar('');
+ const list=S.newUser?[]:VIDEOS.slice(0,5);
  return {top:topbar(),html:`
  <div class="eyebrow">Pazartesi, 16 Kasım</div>
- <h1 class="h1">Merhaba <em>Harun</em> 👋</h1>
- <p class="sub">Bugün hangi ürününü öne çıkaralım?</p>
+ <h1 class="h1">Merhaba <em>${esc(S.user.name)}</em> 👋</h1>
+ <p class="sub">Ürününün kısa reklam videosunu birkaç dakikada hazırlayalım.</p>
  <div class="hero-grid" style="margin-top:20px">
   <a class="cta" href="#/urun">
    ${heroVis()}
-   <span class="tag acc hv-txt" style="align-self:flex-start;margin-bottom:12px">${ic('spark')} Yaklaşık 3 dakika</span>
+   <span class="${S.free?'free':'tag acc'} hv-txt" style="align-self:flex-start;margin-bottom:12px">${S.free?ic('gift')+' İlk videon ücretsiz':ic('clock')+' İlk videon ≈ 5 dakika'}</span>
    <h2 class="hv-txt">Yeni video <em>oluştur</em></h2>
-   <p class="hv-txt">Ürün linkini yapıştır ya da fotoğraf yükle, gerisini biz halledelim.</p>
+   <p class="hv-txt">Trendyol, Etsy veya Instagram linkini yapıştır ya da fotoğraf yükle. Senaryoyu beğenmeden kredi kullanılmaz.</p>
    <span class="btn p hv-txt" style="align-self:flex-start;height:46px">Hemen başla ${ic('chev')}</span>
   </a>
   <div style="display:grid;gap:12px">
    <div class="bal">
-    <div class="row between"><span class="small muted">Kredi bakiyesi</span><span class="tag acc">Pro plan</span></div>
+    <div class="row between"><span class="small muted">Kredi bakiyen</span><span class="tag acc">${planOf()?planOf().n+' plan':'Deneme'}</span></div>
     <div class="num">${fmt(S.balance)}<small>kredi</small></div>
-    <div class="small muted">≈ 25 adet 15 saniyelik video</div>
-    <div class="meter"><i style="width:62%"></i></div>
-    <div class="row between small"><span class="dim">Aylık kredinin %62'si duruyor</span><a href="#/kredi" class="acc" style="font-weight:600">Kredi yükle</a></div>
+    <div class="small muted">${S.free?'İlk videon için krediye gerek yok':'≈ '+vids(S.balance)+' adet 15 saniyelik video'}</div>
+    <div class="meter"><i style="width:${S.free?0:Math.min(100,S.balance/8)}%"></i></div>
+    <div class="row between small"><span class="dim">${S.free?'Sonraki videolar için plan seç':'Plan kredin 1 Aralık’ta yenilenir'}</span><a href="#/kredi" class="acc" style="font-weight:600">Kredi yükle</a></div>
    </div>
    <div class="quick">
     <a href="#/urun" data-a="tabgo" data-v="link"><span class="ic">${ic('link')}</span>Link yapıştır</a>
@@ -657,43 +758,53 @@ V.panel=()=>{ bar('');
   </div>
  </div>
  <div class="sec">
-  <div class="sec-h"><h3>Son videolar</h3><a href="#/gecmis">Tümünü gör →</a></div>
-  <div class="hscroll">${VIDEOS.slice(0,5).map(thumb).join('')}</div>
+  <div class="sec-h"><h3>Son videolar</h3>${list.length?'<a href="#/gecmis">Tümünü gör →</a>':''}</div>
+  ${list.length?`<div class="hscroll">${list.map(thumb).join('')}</div>`:`<div class="card empty"><span class="ic">${ic('film')}</span><b>Henüz videon yok</b><p class="small muted" style="margin-top:4px">İlk videon hazır olunca burada görünecek.</p></div>`}
  </div>
  <div class="sec lower">
-  <div class="card tip"><span class="ic">${ic('bulb')}</span><div><b style="font-size:14px">İpucu: UGC videoları daha çok izleniyor</b><p class="small muted" style="margin-top:3px">Instagram ve TikTok'ta "müşteri anlatıyor" tarzı videolar, klasik tanıtıma göre daha çok etkileşim alıyor.</p></div></div>
-  <div class="card tip"><span class="ic" style="background:var(--accSoft);color:var(--acc)">${ic('shield')}</span><div><b style="font-size:14px">Kredin hep güvende</b><p class="small muted" style="margin-top:3px">Video üretilemezse kredin otomatik olarak geri yüklenir. Hiçbir şey yapman gerekmez.</p></div></div>
+  <div class="card tip"><span class="ic">${ic('bulb')}</span><div><b style="font-size:14px">İpucu: “Müşteri gibi anlat” daha çok izleniyor</b><p class="small muted" style="margin-top:3px">Instagram ve TikTok’ta bir müşteri anlatıyormuş gibi duran videolar, klasik tanıtıma göre daha çok etkileşim alıyor.</p></div></div>
+  <div class="card tip"><span class="ic" style="background:var(--accSoft);color:var(--acc)">${ic('shield')}</span><div><b style="font-size:14px">Kredin hep güvende</b><p class="small muted" style="margin-top:3px">Video oluşmazsa kredin kendiliğinden geri yüklenir. Hiçbir şey yapman gerekmez.</p></div></div>
  </div>`};
 };
 
+const GOOD=/(trendyol|etsy|instagram|hepsiburada|shopier)\./i;
+function doFetch(){
+ if(!S.link) return;
+ S.fetching=true;S.fetched=false;S.linkErr=false;render();
+ setTimeout(()=>{S.fetching=false;if(GOOD.test(S.link)){S.fetched=true;const m=S.link.match(GOOD);S.product.src=m[1][0].toUpperCase()+m[1].slice(1).toLowerCase()}else S.linkErr=true;if(location.hash.startsWith('#/urun'))render()},1200);
+}
 V.urun=()=>{
  const linkTab=`
-  <div class="linkbox"><input id="link" placeholder="Ürün linkini yapıştır" value="${esc(S.link)}" inputmode="url"><button class="btn sm s" data-a="paste">${ic('paste')}Yapıştır</button></div>
+  <div class="linkbox"><input id="link" placeholder="Ürün linkini buraya yapıştır" value="${esc(S.link)}" inputmode="url" autocomplete="off"><button class="btn sm s" data-a="paste">${ic('paste')}Yapıştır</button></div>
   <div class="sources">${[['Trendyol','#f27a1a','T'],['Etsy','#f1641e','E'],['Instagram','linear-gradient(135deg,#f9ce34,#ee2a7b,#6228d7)','I'],['Hepsiburada','#ff6000','H'],['Shopier','#4c5bd4','S']].map(s=>`<span class="src"><b style="background:${s[1]}">${s[2]}</b>${s[0]}</span>`).join('')}</div>
-  <button class="btn s w" style="margin-top:14px" data-a="fetch">${ic('wand')}Bilgileri otomatik çek</button>`;
+  <p class="small dim" style="margin-top:10px">Linki yapıştırınca bilgileri kendiliğinden getiririz.</p>`;
  const fotoTab=`
-  <label class="drop" for="file"><span class="ic">${ic('up')}</span><b>Fotoğrafları buraya bırak</b><span class="small muted">veya galeriden seç • en fazla 6 fotoğraf</span></label>
+  <label class="drop" for="file"><span class="ic">${ic('up')}</span><b>Fotoğrafları buraya bırak</b><span class="small muted">veya galeriden seç • en fazla 5 fotoğraf</span></label>
   <input type="file" id="file" accept="image/*" multiple hidden>
   <button class="btn g w" data-a="demoup" style="margin-top:6px">Örnek fotoğraflarla dene</button>
   <p class="small dim" style="margin-top:6px;text-align:center">İpucu: Açık renk zeminde, gün ışığında çekilmiş fotoğraflar en iyi sonucu verir.</p>`;
  let prev='';
- if(S.fetching) prev=`<div class="card" style="margin-top:16px"><div class="shimmer" style="height:16px;width:55%"></div><div class="imgs" style="margin-top:14px">${'<div class="shimmer" style="aspect-ratio:1"></div>'.repeat(4)}</div><div class="shimmer" style="height:48px;margin-top:14px"></div><div class="shimmer" style="height:84px;margin-top:12px"></div></div>`;
- else if(S.fetched||S.uploads.length) prev=preview();
- const can=S.fetched||S.uploads.length;
+ if(S.tab==='link'&&S.fetching) prev=`<div class="card" style="margin-top:16px"><div class="row small muted" style="margin-bottom:12px">${ic('wand')} Ürün bilgileri getiriliyor…</div><div class="imgs">${'<div class="shimmer" style="aspect-ratio:1"></div>'.repeat(4)}</div><div class="shimmer" style="height:48px;margin-top:14px"></div><div class="shimmer" style="height:84px;margin-top:12px"></div></div>`;
+ else if(S.tab==='link'&&S.linkErr) prev=`<div class="errbox">${ic('alert')}<div style="flex:1"><b>Bu linki okuyamadık</b><p class="small muted" style="margin:4px 0 12px">Sayfa gizli olabilir ya da bu siteyi henüz desteklemiyoruz. Ürünün fotoğraflarıyla devam edebilirsin, sonuç aynı olur.</p><div class="row" style="flex-wrap:wrap;gap:8px"><button class="btn s sm" data-a="tab" data-v="foto">${ic('img')}Fotoğraf yükle</button><button class="btn g sm" data-a="refetch">${ic('redo')}Tekrar dene</button></div></div></div>`;
+ else if((S.tab==='link'&&S.fetched)||(S.tab==='foto'&&S.uploads.length)) prev=preview();
+ const can=(S.fetched&&S.tab==='link')||S.uploads.length;
  bar(`<div class="pz"><span class="ln">Adım 1 • Ürün</span><b style="font-size:15px">${can?'Ürün hazır ✓':'Link veya fotoğraf ekle'}</b></div><a class="btn p" href="#/stil" style="${can?'':'opacity:.4;pointer-events:none'}">Stil seç ${ic('chev')}</a>`);
  return {top:topbar('Yeni video','panel'),html:`<div class="narrow">${steps(0)}
+  ${S.free?`<span class="free" style="margin-bottom:10px">${ic('gift')} İlk videon ücretsiz</span>`:''}
   <h1 class="h1">Hangi ürünün <em>videosunu</em> yapalım?</h1>
-  <p class="sub">Linki yapıştır; başlığı, açıklamayı ve fotoğrafları biz çekelim. İstersen kendi fotoğraflarını yükle.</p>
+  <p class="sub">Trendyol, Etsy veya Instagram linkini yapıştır; adı, fiyatı ve fotoğrafları biz getirelim.</p>
   <div class="seg" style="margin:20px 0 14px"><button class="${S.tab==='link'?'on':''}" data-a="tab" data-v="link">${ic('link')}Ürün linki</button><button class="${S.tab==='foto'?'on':''}" data-a="tab" data-v="foto">${ic('img')}Fotoğraf yükle</button></div>
   ${S.tab==='link'?linkTab:fotoTab}
   ${prev}</div>`};
 };
 function preview(){
- const imgs = S.uploads.length? S.uploads.map((u,i)=>`<div class="im ${S.img===i?'on':''}" data-a="img" data-v="${i}">${u.startsWith('data:')?`<img src="${u}" alt="">`:art('kupa',u,'sq')}${S.img===i?'<span class="badge">KAPAK</span>':''}</div>`).join('')
+ const imgs = S.tab==='foto'&&S.uploads.length? S.uploads.map((u,i)=>`<div class="im ${S.img===i?'on':''}" data-a="img" data-v="${i}">${u.startsWith('data:')?`<img src="${u}" alt="">`:art('kupa',u,'sq')}${S.img===i?'<span class="badge">KAPAK</span>':''}</div>`).join('')
   : [['kupa','ocean'],['kupa','sand'],['kupa','sage']].map((a,i)=>`<div class="im ${S.img===i?'on':''}" data-a="img" data-v="${i}">${art(a[0],a[1],'sq')}${S.img===i?'<span class="badge">KAPAK</span>':''}</div>`).join('');
+ const n=S.tab==='foto'?S.uploads.length:3;
  return `<div class="card" style="margin-top:16px;animation:in .4s var(--ease)">
-  <div class="ok-line">${ic('check')} ${S.uploads.length?S.uploads.length+' fotoğraf eklendi':S.product.src+"'dan bilgiler çekildi"} — kontrol et, istersen düzelt</div>
-  <div class="imgs">${imgs}<label class="im add" for="file2">${ic('plus')}</label></div><input type="file" id="file2" accept="image/*" multiple hidden>
+  <div class="ok-line">${ic('check')} ${S.tab==='foto'?n+' fotoğraf eklendi':S.product.src+"’dan bilgiler geldi"} — kontrol et, istersen düzelt</div>
+  <div class="imgs">${imgs}${n<5?`<label class="im add" for="file2" title="En fazla 5 fotoğraf">${ic('plus')}</label>`:''}</div><input type="file" id="file2" accept="image/*" multiple hidden>
+  <p class="small dim" style="margin-top:8px">${n} / 5 fotoğraf • kapak fotoğrafını seçmek için dokun</p>
   <label class="field"><span>Ürün adı</span><input class="inp" data-m="product.title" value="${esc(S.product.title)}"></label>
   <label class="field"><span>Açıklama</span><textarea class="inp" data-m="product.desc" rows="3">${esc(S.product.desc)}</textarea></label>
   <div style="display:grid;grid-template-columns:1fr 1.3fr;gap:10px"><label class="field"><span>Fiyat (₺)</span><input class="inp" data-m="product.price" value="${esc(S.product.price)}"></label><label class="field"><span>Öne çıkan özellik</span><input class="inp" value="El yapımı, tek parça"></label></div>
@@ -701,76 +812,93 @@ function preview(){
 }
 
 V.stil=()=>{
- bar(`<div class="pz"><span class="ln">Adım 2 • Stil</span><b style="font-size:15px">${STYLES.find(s=>s.id===S.style).t}</b></div><a class="btn p" href="#/ayarlar">Ayarlara geç ${ic('chev')}</a>`);
+ bar(`<div class="pz"><span class="ln">Adım 2 • Stil</span><b style="font-size:15px">${STYLES.find(s=>s.id===S.style).t}</b></div><a class="btn p" href="#/ayarlar">Devam ${ic('chev')}</a>`);
  const sc=s=>`<button class="scard ${S.style===s.id?'on':''}" data-a="style" data-v="${s.id}"><div class="pv"><div class="ani">${art(s.k,s.pal,'wide')}</div><span class="lbl tag" style="background:rgba(0,0,0,.45);color:#fff;border-color:rgba(255,255,255,.15)">${ic(s.i)}${s.sub||s.t}</span></div><span class="chk">${ic('check')}</span><div class="bd"><h4>${s.t}</h4><p>${s.d}</p></div></button>`;
  const BC=['Daha enerjik olsun','Anneler Günü kampanyası','%20 indirimi vurgula','Lüks ve sakin','Kargo bedava de'];
  return {top:topbar('Stil seç','urun'),html:`${steps(1)}
-  <h1 class="h1">Videon nasıl bir <em>havada</em> olsun?</h1><p class="sub">Bir stil seç. Emin değilsen UGC çoğu satıcı için en iyi başlangıç.</p>
+  <h1 class="h1">Videon nasıl bir <em>havada</em> olsun?</h1><p class="sub">Emin değilsen “Müşteri gibi anlat”ı seç; çoğu satıcı için en iyi başlangıç.</p>
   <div class="sgrid" style="margin-top:18px">${STYLES.map(sc).join('')}
    <div class="card brief">
    <div class="row between"><h3 style="font-size:15px">Ne farklı olsun?</h3><span class="tag">İsteğe bağlı</span></div>
-   <p class="small muted" style="margin-top:4px">Aklındakini kendi cümlelerinle yaz, yapay zekâ senaryoya ekler.</p>
+   <p class="small muted" style="margin-top:4px">Aklındakini kendi cümlelerinle yaz, senaryoya ekleriz.</p>
    <textarea class="inp" style="margin-top:12px" data-m="brief" placeholder="Örn: Sabah kahvesi sahnesi olsun, sonunda indirim kodu görünsün.">${esc(S.brief)}</textarea>
    <div class="chips">${BC.map(c=>`<button class="chip ${S.briefChips.includes(c)?'on':''}" data-a="bchip" data-v="${c}">${S.briefChips.includes(c)?ic('check'):'+'} ${c}</button>`).join('')}</div>
   </div></div>`};
 };
-
+function ctaFor(where){ // single primary action
+ if(short()) return `<a class="btn p ${where==='card'?'w':''}" href="#/kredi">${ic('coin')}Kredi yükle</a>`;
+ return where==='scen'?`<button class="btn p" data-a="produce">${ic('check')}Onayla ve üret</button>`:`<a class="btn p ${where==='card'?'w':''}" href="#/senaryo">${ic('wand')}Senaryoyu oluştur</a>`;
+}
+function shortBox(){
+ if(!short()) return '';
+ const need=cost()-S.balance; const pk=PACKS.find(p=>p.k+p.b>=need)||PACKS[2];
+ return `<div class="warnbox">${ic('alert')}<div><b style="color:#fff">Kredin bu video için yetmiyor.</b><br>Bu video ${cost()} kredi, bakiyen ${fmt(S.balance)} kredi. ${fmt(pk.k+pk.b)} kredilik paket al ya da planını yükselt. İstersen kaliteyi veya süreyi düşürerek de devam edebilirsin.</div></div>`;
+}
+function freeNote(){
+ if(!S.free||freeOk()) return '';
+ return `<div class="warnbox">${ic('gift')}<div>Ücretsiz ilk video <b style="color:#fff">Uygun veya Önerilen kalitede, en fazla 15 sn, 720p ve 1 versiyon</b> için geçerli. Bu ayarlarla video ${rawPrice()} kredi tutar.</div></div>`;
+}
 V.ayarlar=()=>{
  const m=MODELS.find(x=>x.id===S.model);
- const c=price();
  const seg=(key,opts)=>`<div class="seg">${opts.map(o=>`<button class="${S[key]===o[0]?'on':''}" data-a="set" data-k="${key}" data-v="${o[0]}">${o[1]}</button>`).join('')}</div>`;
  const pct=((S.dur-4)/26*100).toFixed(1)+'%';
- const sum=`<div class="card summary"><div class="eyebrow">Özet</div>
-   <div class="row" style="margin:12px 0 14px"><div style="width:52px;aspect-ratio:9/16;border-radius:10px;overflow:hidden;border:1px solid var(--line);flex:none">${art('kupa','ocean')}</div><div style="min-width:0"><b style="font-size:13.5px;display:block;line-height:1.35">${esc(S.product.title)}</b><span class="small muted">${STYLES.find(s=>s.id===S.style).t}</span></div></div>
-   ${[['Model',m.name],['Süre',S.dur+' saniye'],['Kalite',S.res+' • '+S.ar],['Dil',S.lang==='tr'?'Türkçe':'İngilizce'],['Ses',VOICES.find(v=>v.id===S.voice).n],['Altyazı • Müzik',(S.subs?'Açık':'Kapalı')+' • '+({yok:'Yok',enerjik:'Enerjik',sakin:'Sakin',luks:'Lüks'})[S.music]],['Versiyon',S.ver+' adet']].map(r=>`<div class="row between small" style="padding:7px 0;border-bottom:1px solid var(--line)"><span class="dim">${r[0]}</span><span>${r[1]}</span></div>`).join('')}
-   <div class="row between" style="margin:16px 0 4px"><span class="muted small">Toplam</span><span class="tag ornek">Örnek fiyat</span></div>
-   <div style="font-family:var(--h);font-size:34px;font-weight:600;letter-spacing:-.03em" id="sumc">${c} <span style="font-size:15px;color:var(--muted);font-weight:500">kredi</span></div>
-   <div class="small dim" style="margin-bottom:16px">≈ ₺${tl(c)} • Bakiyen: ${fmt(S.balance)} kredi</div>
-   <a class="btn p w" href="#/senaryo">${ic('wand')}Senaryoyu oluştur</a>
-   <p class="small dim" style="margin-top:10px;text-align:center">Senaryo ücretsiz. Kredi sadece onaylayınca bloke edilir.</p></div>`;
- bar(`<div class="pz"><b id="barc">${c} kredi</b> <span class="tag ornek" style="vertical-align:4px;margin-left:2px">örnek</span><span class="ln" id="barl">${m.tier} • ${S.dur} sn • ${S.res}${S.ver>1?' • '+S.ver+' versiyon':''}</span></div><a class="btn p" href="#/senaryo">Senaryoyu oluştur</a>`,1);
- return {top:topbar('Ayarlar','stil'),html:`<div class="split"><div>${steps(2)}
-  <h1 class="h1">Ayarları yap, <em>fiyatı gör</em></h1>
-  <p class="sub">Her değişiklikte fiyat anında güncellenir.</p>
-  <div class="smart" style="margin-top:16px">${ic('check')}<span>En iyi ayarları senin için seçtik. Hiçbir şeye dokunmadan da devam edebilirsin.</span></div>
-  <div class="setc card"><div class="lab"><h4>${ic('cpu')}Yapay zekâ modeli</h4><span class="tag ornek">Örnek fiyatlar</span></div>
-   <div class="mgrid">${MODELS.map(x=>`<button class="mcard ${S.model===x.id?'on':''}" data-a="set" data-k="model" data-v="${x.id}"><div class="lvl">${[1,2,3,4].map(k=>`<i class="${k<=x.lv?'f':''}"></i>`).join('')}</div><h4>${x.tier}</h4><div class="nm">${x.name}</div><div class="pr"><b>${x.ps.toLocaleString('tr-TR')}</b> kredi / sn</div></button>`).join('')}</div>
-   <p class="small muted" style="margin-top:10px">${m.d}</p>
-  </div>
+ const st=STYLES.find(s=>s.id===S.style);
+ const chips=[m.tier+' kalite',`<span class="js-dur">${S.dur}</span> sn`,ARL[S.ar],S.lang==='tr'?'Türkçe':'İngilizce',S.voice==='yok'?'Seslendirme yok':VOICES.find(v=>v.id===S.voice).n+' sesi','Altyazı '+(S.subs?'açık':'kapalı'),'Müzik: '+MUSL[S.music],S.ver+' versiyon'];
+ bar(`<div class="pz">${freeOk()?'<b>Ücretsiz</b>':`<b><span class="js-c">${cost()}</span> kredi</b>`}<span class="ln">${freeOk()?'İlk videon bizden':short()?'Bakiyen yetmiyor':rateLbl()+' ≈ ₺'+`<span class="js-tl">${tl(cost())}</span>`}</span></div>${ctaFor('bar')}`,1);
+ const details = !S.open?'':`
+  <div class="setc card" style="margin-top:10px"><div class="lab"><h4>${ic('star')}Video kalitesi</h4></div>
+   <div class="qgrid">${MODELS.map(x=>`<button class="qcard ${S.model===x.id?'on':''}" data-a="set" data-k="model" data-v="${x.id}">${x.id==='den'?'<span class="rec tag acc">Önerilen</span>':''}<h4>${x.tier}</h4><p>${x.d}</p><div class="qc"><span class="js-q" data-m="${x.id}">${rawPrice(x.id)}</span> kredi</div></button>`).join('')}</div>
+   <p class="note" style="margin-top:8px">Kartlardaki tutar, bu videonun seçili süre ve ayarlarla toplamıdır.</p></div>
   <div class="set-grid" style="margin-top:12px">
    <div class="setc card full"><div class="lab"><h4>${ic('clock')}Süre</h4><span class="val" id="durv">${S.dur} sn</span></div>
     <input type="range" min="4" max="30" step="1" value="${S.dur}" id="dur" style="--p:${pct}" aria-label="Süre">
     <div class="ticks"><span>4 sn</span><span>Reels için ideal: 10–15 sn</span><span>30 sn</span></div></div>
-   <div class="setc card"><div class="lab"><h4>${ic('res')}Çözünürlük</h4></div>${seg('res',[['480p','480p'],['720p','720p HD'],['1080p','1080p']])}</div>
-   <div class="setc card"><div class="lab"><h4>${ic('ratio')}En-boy oranı</h4></div>${seg('ar',[['9:16','<i class="ar" style="width:9px;height:15px"></i>9:16'],['1:1','<i class="ar" style="width:13px;height:13px"></i>1:1'],['16:9','<i class="ar" style="width:17px;height:10px"></i>16:9']])}</div>
+   <div class="setc card"><div class="lab"><h4>${ic('res')}Görüntü netliği</h4></div>${seg('res',[['480p','Hızlı'],['720p','HD'],['1080p','Full HD']])}<p class="note" style="margin-top:8px">Full HD daha çok kredi kullanır.</p></div>
+   <div class="setc card"><div class="lab"><h4>${ic('ratio')}Video şekli</h4></div>${seg('ar',[['9:16','<i class="ar" style="width:9px;height:15px"></i>Dikey'],['1:1','<i class="ar" style="width:13px;height:13px"></i>Kare'],['16:9','<i class="ar" style="width:17px;height:10px"></i>Yatay']])}<p class="note" style="margin-top:8px">Reels ve TikTok için dikey.</p></div>
    <div class="setc card"><div class="lab"><h4>${ic('globe')}Video dili</h4></div>${seg('lang',[['tr','Türkçe'],['en','İngilizce']])}</div>
-   <div class="setc card"><div class="lab" style="margin-bottom:6px"><h4>${ic('layers')}Versiyon sayısı</h4><div class="stepper"><button data-a="ver" data-v="-1" aria-label="Azalt">${ic('minus')}</button><b>${S.ver}</b><button data-a="ver" data-v="1" aria-label="Artır">${ic('plus')}</button></div></div><p class="small muted">Farklı versiyonlar üret, en beğendiğini seç.</p></div>
-   <div class="setc card full"><div class="lab"><h4>${ic('mic')}Seslendirme sesi</h4><span class="small dim">+4 kredi</span></div>
-    <div class="voices">${VOICES.map(v=>`<button class="voice ${S.voice===v.id?'on':''}" data-a="set" data-k="voice" data-v="${v.id}"><span class="av" style="background:${v.c}">${v.n[0]}</span><span><b>${v.n}</b><span>${v.d}</span></span>${v.id!=='yok'?`<span class="pl" data-a="listen"><svg viewBox="0 0 24 24"><path d="M7 4v16l13-8z"/></svg></span>`:''}</button>`).join('')}</div></div>
+   <div class="setc card"><div class="lab" style="margin-bottom:6px"><h4>${ic('layers')}Versiyon sayısı</h4><div class="stepper"><button data-a="ver" data-v="-1" aria-label="Azalt">${ic('minus')}</button><b>${S.ver}</b><button data-a="ver" data-v="1" aria-label="Artır">${ic('plus')}</button></div></div>
+    <div class="verwarn">${ic('alert')}<span>Her ek versiyon aynı tutarı tekrar kullanır.${S.ver>1?` ${S.ver} versiyon = <b style="color:#fff">${rawPrice()} kredi</b>.`:''}</span></div></div>
+   <div class="setc card full"><div class="lab"><h4>${ic('mic')}Seslendirme sesi</h4></div>
+    <div class="voices">${VOICES.map(v=>`<button class="voice ${S.voice===v.id?'on':''}" data-a="set" data-k="voice" data-v="${v.id}"><span class="av" style="background:${v.c}">${v.n[0]}</span><span><b>${v.n}</b><span>${v.d}</span></span>${v.id!=='yok'?`<span class="pl" data-a="listen" aria-label="Dinle"><svg viewBox="0 0 24 24"><path d="M7 4v16l13-8z"/></svg></span>`:''}</button>`).join('')}</div></div>
    <div class="setc card"><div class="lab" style="margin:0"><h4>${ic('cc')}Altyazı</h4><button class="tgl ${S.subs?'on':''}" data-a="subs" aria-label="Altyazı"></button></div><p class="small muted" style="margin-top:6px">Sesi kapalı izleyenler için ekranda yazı.</p></div>
-   <div class="setc card"><div class="lab"><h4>${ic('music')}Müzik</h4><span class="small dim">+2 kredi</span></div><div class="chips" style="margin:0">${[['yok','Yok'],['enerjik','Enerjik'],['sakin','Sakin'],['luks','Lüks']].map(o=>`<button class="chip ${S.music===o[0]?'on':''}" data-a="set" data-k="music" data-v="${o[0]}">${o[1]}</button>`).join('')}</div></div>
-  </div></div>${sum}</div>`};
+   <div class="setc card"><div class="lab"><h4>${ic('music')}Müzik</h4></div><div class="chips" style="margin:0">${Object.entries(MUSL).map(o=>`<button class="chip ${S.music===o[0]?'on':''}" data-a="set" data-k="music" data-v="${o[0]}">${o[1]}</button>`).join('')}</div></div>
+  </div>
+  <button class="toggle-h ${S.adv?'open':''}" data-a="adv">${ic('cpu')} Gelişmiş<span style="flex:1"></span><svg class="i ch" viewBox="0 0 24 24">${P.chev}</svg></button>
+  ${S.adv?`<div class="adv"><div class="small muted" style="margin-bottom:6px">Kalite seviyelerinin bugün kullandığı altyapı (bilgi için):</div>${MODELS.map(x=>`<div class="ar2"><span>${x.tier}</span><span>${x.eng}</span></div>`).join('')}<p class="note" style="margin-top:6px">Altyapı zamanla değişebilir; seçtiğin kalite seviyesi aynı kalır.</p></div>`:''}`;
+ return {top:topbar('Ayarlar','stil'),html:`<div class="narrow">${steps(2)}
+  <h1 class="h1">Her şey hazır, <em>bir bak</em></h1>
+  <p class="sub">En uygun ayarları senin için seçtik. Dokunmadan devam edebilirsin.</p>
+  <div class="card sumcard" style="margin-top:16px">
+   <div class="row"><div style="width:48px;aspect-ratio:9/16;border-radius:10px;overflow:hidden;border:1px solid var(--line);flex:none">${art('kupa','ocean')}</div><div style="min-width:0"><b style="font-size:14px;display:block;line-height:1.35">${esc(S.product.title)}</b><span class="small muted">${st.t}</span></div></div>
+   <div class="chips2">${chips.map(c=>`<span>${c}</span>`).join('')}</div>
+   <div class="pricebox">${priceHTML()}<div class="note" style="margin-top:8px">Senaryoyu görmek ücretsiz. Kredi, “Onayla ve üret”e basınca ayrılır.</div></div>
+   ${shortBox()}${freeNote()}
+   <div class="only-d" style="margin-top:14px">${ctaFor('card')}</div>
+  </div>
+  <button class="toggle-h ${S.open?'open':''}" data-a="open">${ic('sliders')} Ayarları değiştir<span style="flex:1"></span><span class="small dim only-d" style="font-weight:500;margin-right:8px">kalite, süre, ses, müzik…</span><svg class="i ch" viewBox="0 0 24 24">${P.chev}</svg></button>
+  ${details}</div>`};
 };
 
 const SCENES=[
  {t:'0–3 sn',h:'Dikkat çeken açılış',vis:'Sabah ışığında masada duran kupa, buhar yükseliyor. Yakın çekim.',vo:'Sabah kahvemi artık bu kupa olmadan içemiyorum!'},
  {t:'3–7 sn',h:'Ürünü tanıt',vis:'El kupayı kaldırıyor, okyanus mavisi sır ışıkta parlıyor.',vo:'Tamamen el yapımı, her biri tek ve özel. Rengi fotoğraftakinden bile güzel.'},
  {t:'7–11 sn',h:'Fayda ve detay',vis:'Kupa bulaşık makinesine konuyor, ardından dolu kupa yan açıdan.',vo:'Üstelik bulaşık makinesinde yıkanıyor, 350 ml tam bir fincan dolusu.'},
- {t:'11–15 sn',h:'Harekete geçir',vis:'Kupa ve fiyat etiketi: 289,90 ₺. Ekranda “Link profilde” yazısı.',vo:'Stoklar sınırlı, sen de kendine bir tane ayır. Link profilimde!'}
+ {t:'11–15 sn',h:'Siparişe çağır',vis:'Kupa ve fiyat etiketi: 289,90 ₺. Ekranda “Link profilde” yazısı.',vo:'Stoklar sınırlı, sen de kendine bir tane ayır. Link profilimde!'}
 ];
 V.senaryo=()=>{
- const c=price();
- bar(`<div class="pz"><b>${c} kredi</b> <span class="tag ornek" style="vertical-align:4px;margin-left:2px">örnek</span><span class="ln">Onaylayınca bloke edilir</span></div><button class="btn p" data-a="produce">${ic('check')}Onayla ve üret</button>`);
+ const c=cost(), f=freeOk();
+ bar(`<div class="pz"><b>${f?'Ücretsiz':c+' kredi'}</b><span class="ln">${f?'İlk videon bizden':short()?'Bakiyen yetmiyor':'Onaylayınca '+c+' kredi kullanılır'}</span></div>${ctaFor('scen')}`);
  const st=STYLES.find(s=>s.id===S.style);
  return {top:topbar('Senaryo','ayarlar'),html:`<div class="fx2"><div>${steps(3)}
   <h1 class="h1">Senaryon <em>hazır</em> ✨</h1>
-  <p class="sub">Göz at, değiştirmek istediğin yazıya dokun. Bu adım ücretsiz.</p>
-  <div class="row" style="margin-top:14px;flex-wrap:wrap;gap:8px"><span class="tag acc">${ic(st.i)}${st.t}</span><span class="tag">${S.dur} sn</span><span class="tag">${S.lang==='tr'?'Türkçe':'İngilizce'}</span><span class="tag">${ic('mic')}${VOICES.find(v=>v.id===S.voice).n}</span><button class="chip" style="margin-left:auto;padding:6px 11px" data-a="rewrite">${ic('redo')}Yeniden yaz</button></div>
-  <div class="lock" style="margin-top:16px">${ic('lock')}<span><b style="color:var(--text)">${c} kredi bloke edilecek.</b> Video hazır olunca düşülür. Üretilemezse tamamı otomatik iade edilir.</span></div>
-  <div class="card vprev" style="margin-top:12px"><button class="vplay" data-a="listen" aria-label="Dinle"><svg viewBox="0 0 24 24"><path d="M7 4v16l13-8z"/></svg></button><div style="flex:1;min-width:0"><div class="row between"><b style="font-size:13.5px">Seslendirmeyi dinle</b><span class="small dim">0:${S.dur<10?"0"+S.dur:S.dur}</span></div><div class="wave">${Array.from({length:42},(_,i)=>`<i style="height:${6+Math.round(Math.abs(Math.sin(i*1.7)*Math.cos(i*.45))*20)}px"></i>`).join("")}</div></div></div>
+  <p class="sub">Göz at; değiştirmek istediğin yazıya dokun. Bu adım ücretsiz.</p>
+  <div class="row" style="margin-top:14px;flex-wrap:wrap;gap:8px"><span class="tag acc">${ic(st.i)}${st.t}</span><span class="tag">${S.dur} sn</span><span class="tag">${S.lang==='tr'?'Türkçe':'İngilizce'}</span><span class="tag">${ic('mic')}${VOICES.find(v=>v.id===S.voice).n}</span><button class="chip" style="margin-left:auto;padding:6px 11px" data-a="rewrite">${ic('redo')}Ücretsiz yeniden yaz</button></div>
+  ${f?`<div class="lock" style="margin-top:16px;background:rgba(var(--accRGB),.07);border-color:rgba(var(--accRGB),.25)">${ic('gift')}<span><b style="color:var(--text)">İlk videon ücretsiz.</b> Onaylarsan kredi kullanılmaz.</span></div>`
+   :short()?shortBox():`<div class="lock" style="margin-top:16px">${ic('lock')}<span><b style="color:var(--text)">Onaylarsan ${c} kredi ayrılır.</b> Video gelirse bu kredi kullanılır, gelmezse tamamı geri yüklenir.</span></div>`}
+  <div class="card vprev" style="margin-top:12px"><button class="vplay" data-a="listen" aria-label="Dinle"><svg viewBox="0 0 24 24"><path d="M7 4v16l13-8z"/></svg></button><div style="flex:1;min-width:0"><div class="row between"><b style="font-size:13.5px">Seslendirmeyi dinle</b><span class="small dim">0:${S.dur<10?'0'+S.dur:S.dur}</span></div><div class="wave">${Array.from({length:42},(_,i)=>`<i style="height:${6+Math.round(Math.abs(Math.sin(i*1.7)*Math.cos(i*.45))*20)}px"></i>`).join('')}</div></div></div>
   </div><div id="scenes" style="display:grid;gap:10px;margin-top:18px">
   ${SCENES.map((s,i)=>`<div class="card scene"><div class="th">${art('kupa',['ocean','sand','sage','ocean'][i])}<span>${i+1}</span></div><div style="min-width:0">
-   <div class="row between"><span class="tm">SAHNE ${i+1} • ${s.t}</span><span class="dim" style="display:flex">${ic('edit')}</span></div>
+   <div class="row between"><span class="tm">SAHNE ${i+1} • ${s.t}</span><span class="dim" style="display:flex" title="Düzenlemek için yazıya dokun">${ic('edit')}</span></div>
    <h4>${s.h}</h4>
    <div class="vo-lbl">${ic('mic')}Seslendirme</div>
    <textarea class="vo" rows="2">${s.vo}</textarea>
@@ -779,11 +907,12 @@ V.senaryo=()=>{
  </div></div>`};
 };
 
-const PH=[['Sırada','Sıranı bekliyoruz'],['Seslendirme hazırlanıyor','Elif sesiyle Türkçe seslendirme'],['Video üretiliyor','Yapay zekâ sahneleri çiziyor'],['Altyazı ve müzik ekleniyor','Son dokunuşlar'],['Hazır','Videon seni bekliyor']];
+const PH=[['Sırada','Sıranı bekliyoruz'],['Seslendirme hazırlanıyor',''],['Görüntüler hazırlanıyor','Sahneler tek tek oluşuyor'],['Altyazı ve müzik ekleniyor','Son dokunuşlar'],['Hazır','Videon seni bekliyor']];
 V.uretim=()=>{
  bar('');
  const pct=Math.round(S.prog); const C=2*Math.PI*92; const done=pct>=100;
  const left=Math.max(0,Math.ceil((100-pct)/100*90));
+ const vn=VOICES.find(v=>v.id===S.voice);
  return {top:topbar('Üretim','panel'),html:`<div class="prod">
   <span class="tag ${done?'ok':'acc'}">${done?'Hazır':S.phase===0?'Sırada':'Üretiliyor'}</span>
   <div class="ring"><svg class="rg" viewBox="0 0 210 210"><defs><linearGradient id="rgg" x1="0" x2="1" y1="0" y2="1"><stop offset="0" style="stop-color:var(--acc2)"/><stop offset="1" style="stop-color:var(--acc)"/></linearGradient></defs>
@@ -792,20 +921,28 @@ V.uretim=()=>{
    <div class="ctr"><b id="pnum">%${pct}</b><span id="pleft">${done?'Tamamlandı':'≈ '+left+' sn kaldı'}</span></div></div>
   <h1 class="h1" style="font-size:22px">${done?'Videon hazır! 🎉':'Videon hazırlanıyor'}</h1>
   <p class="sub" style="max-width:36ch">${esc(S.product.title)}</p>
-  <div class="card tl" style="margin-top:18px">${PH.map((p,i)=>`<div class="it ${i<S.phase||done?'done':i===S.phase?'now':''}"><span class="bub">${i<S.phase||done?ic('check'):''}</span><div><b>${p[0]}</b><span>${i===2?MODELS.find(x=>x.id===S.model).name+' sahneleri çiziyor':p[1]}</span></div></div>`).join('')}</div>
+  <div class="card tl" style="margin-top:18px">${PH.map((p,i)=>`<div class="it ${i<S.phase||done?'done':i===S.phase?'now':''}"><span class="bub">${i<S.phase||done?ic('check'):''}</span><div><b>${p[0]}</b><span>${i===1?(vn.id==='yok'?'Seslendirme yok, müzik hazırlanıyor':vn.n+' sesiyle '+(S.lang==='tr'?'Türkçe':'İngilizce')+' seslendirme'):p[1]}</span></div></div>`).join('')}</div>
   ${done?`<a class="btn p" style="margin-top:18px;min-width:260px" href="#/teslim">${ic('eye')}Videoyu izle</a>`:`
   <div class="card notice"><span class="ic">${ic('bell')}</span><div><b style="font-size:14px">Uygulamayı kapatabilirsin</b><p class="small muted">Video hazır olunca sana bildirim göndereceğiz.</p></div></div>
-  <a class="btn g" href="#/panel" style="margin-top:6px">Panele dön</a>`}
+  <a class="btn g" href="#/panel" style="margin-top:6px">Ana sayfaya dön</a>`}
  </div>`};
 };
+function charge(){
+ if(!S.job||S.job.charged) return;
+ S.job.charged=true; S.lastCost=S.job.cost;
+ if(S.job.free){S.free=false;toast('🎉 Videon hazır! İlk videon ücretsizdi.');}
+ else{S.balance=Math.max(0,S.balance-S.job.cost);toast(`🎉 Videon hazır! ${S.job.cost} kredi kullanıldı.`);}
+ setTimeout(()=>{const p=document.getElementById('cpill');if(p)p.classList.add('flash')},50);
+}
 function runProd(){
  clearInterval(S.timer); S.prog=0; S.phase=0;
+ if(!S.job||S.job.charged) S.job={cost:cost(),free:freeOk(),charged:false};
  S.timer=setInterval(()=>{
   if(location.hash!=='#/uretim'){clearInterval(S.timer);return}
   S.prog=Math.min(100,S.prog+(S.prog<8?1:S.prog<85?2.2:1.5));
   const ph=S.prog<8?0:S.prog<25?1:S.prog<80?2:S.prog<100?3:4;
   const changed=ph!==S.phase; S.phase=ph;
-  if(S.prog>=100){clearInterval(S.timer);render();toast('🎉 Videon hazır!');return}
+  if(S.prog>=100){clearInterval(S.timer);charge();render();return}
   if(changed){render();return}
   const C=2*Math.PI*92; const e=document.getElementById('rgc'); if(!e)return;
   e.style.strokeDashoffset=C*(1-S.prog/100);
@@ -813,12 +950,12 @@ function runProd(){
   document.getElementById('pleft').textContent='≈ '+Math.ceil((100-S.prog)/100*90)+' sn kaldı';
  },220);
 }
-
 V.teslim=()=>{
  bar('');
  const pals=['ocean','sand','sage','terra'];
+ const used=S.job&&S.job.charged?S.job:{cost:cost(),free:false};
  return {top:topbar('Videon hazır','panel'),html:`<div class="del">
-  <div><div class="phone">${art('kupa',pals[S.curVer])}<span class="brandmark">@gokseramik</span><div class="play"><svg viewBox="0 0 24 24"><path d="M7 4v16l13-8z"/></svg></div>
+  <div><div class="phone">${art('kupa',pals[S.curVer])}<span class="brandmark">@${esc(S.user.store.toLowerCase().replace(/[^a-zçğıöşü0-9]/g,''))}</span><div class="play"><svg viewBox="0 0 24 24"><path d="M7 4v16l13-8z"/></svg></div>
    ${S.subs?`<div class="cap">Sabah kahvemi artık <em>bu kupa</em> olmadan içemiyorum!</div>`:''}
    <div class="ctl"><span>0:04</span><div class="pb"><i></i></div><span>0:${S.dur<10?'0'+S.dur:S.dur}</span></div></div></div>
   <div>
@@ -828,123 +965,171 @@ V.teslim=()=>{
    ${S.ver>1?`<div style="margin-top:18px"><div class="small muted" style="margin-bottom:8px">Versiyonlar</div><div class="vers">${Array.from({length:S.ver},(_,i)=>`<div class="v ${S.curVer===i?'on':''}" data-a="cver" data-v="${i}">${art('kupa',pals[i])}<span>V${i+1}</span></div>`).join('')}</div></div>`:''}
    <div class="acts" style="margin-top:20px">
     <button class="btn p w" data-a="toast" data-v="📥 Video indiriliyor (MP4, ${S.res})">${ic('dl')}Videoyu indir</button>
-    <div class="share"><button class="btn ig" data-a="toast" data-v="Instagram açılıyor…">${ic('share')}Instagram</button><button class="btn tt" data-a="toast" data-v="TikTok açılıyor…">${ic('share')}TikTok</button></div>
-    <div class="share"><a class="btn s" href="#/ayarlar">${ic('edit')}Düzenle</a><button class="btn s" data-a="regen">${ic('redo')}Yeniden üret</button></div>
+    <div class="share3"><button class="btn ig" data-a="toast" data-v="Instagram açılıyor…">Instagram</button><button class="btn tt" data-a="toast" data-v="TikTok açılıyor…">TikTok</button><button class="btn wa" data-a="toast" data-v="WhatsApp açılıyor…">${ic('wa')}WhatsApp</button></div>
+    <div class="share"><a class="btn s" href="#/ayarlar" data-a="openset">${ic('sliders')}Ayarları değiştir</a><button class="btn s" data-a="regen">${ic('redo')}Yeniden üret</button></div>
    </div>
-   <div class="meta" style="margin-top:18px"><div><span>Model</span><b>${MODELS.find(x=>x.id===S.model).name}</b></div><div><span>Harcanan</span><b>${price()} kredi</b></div><div><span>Süre • Oran</span><b>${S.dur} sn • ${S.ar}</b></div><div><span>Kalite</span><b>${S.res}</b></div></div>
-   <a class="small dim" href="#/hata" style="display:inline-flex;gap:6px;align-items:center;margin-top:18px">Prototip: hata durumunu gör →</a>
+   <div class="meta" style="margin-top:18px"><div><span>Kullanılan</span><b>${used.free?'Ücretsiz (ilk video)':used.cost+' kredi'}</b></div><div><span>Kalan bakiye</span><b>${fmt(S.balance)} kredi</b></div><div><span>Süre • Şekil</span><b>${S.dur} sn • ${ARL[S.ar].split(' ')[0]}</b></div><div><span>Kalite</span><b>${MODELS.find(x=>x.id===S.model).tier} • ${S.res}</b></div></div>
+   <p class="note" style="margin-top:12px">Trendyol’a yüklemek için: Satıcı Paneli → Ürün → Video ekle. MP4 dosyası doğrudan uyumludur.</p>
+   <a class="small dim" href="#/hata" style="display:inline-flex;gap:6px;align-items:center;margin-top:14px">Prototip: hata durumunu gör →</a>
   </div></div>`};
 };
 V.hata=()=>{
  bar('');
- const c=price();
+ const c=S.job?S.job.cost:cost();
  return {top:topbar('Üretim sonucu','panel'),html:`<div class="fail">
   <div class="big">${ic('alert')}</div>
-  <h1 class="h1">Video bu sefer üretilemedi</h1>
-  <p class="sub">Seçtiğin yapay zekâ modeli şu an çok yoğun ve zamanında cevap vermedi. Bir kez daha denedik ama olmadı. Senin bir hatan yok.</p>
-  <div class="refund"><span class="ic">${ic('refund')}</span><div><b>${c} kredin iade edildi</b><p class="small muted">Krediler hesabına geri yüklendi. Bakiyen: ${fmt(S.balance)} kredi</p></div></div>
+  <h1 class="h1">Video bu sefer oluşmadı</h1>
+  <p class="sub">Sistem şu an yoğun, video zamanında oluşmadı. Bir kez daha denedik, olmadı. Senin bir hatan yok.</p>
+  <div class="refund"><span class="ic">${ic('refund')}</span><div><b>${c?c+' kredin geri yüklendi':'Ücretsiz hakkın duruyor'}</b><p class="small muted">${c?'Krediler hesabına geri döndü. ':''}Bakiyen: ${fmt(S.balance)} kredi</p></div></div>
   <div style="display:grid;gap:10px">
    <button class="btn p w" data-a="produce">${ic('redo')}Tekrar dene</button>
-   <button class="btn s w" data-a="othermodel">${ic('cpu')}Ekonomik modelle dene</button>
-   <a class="btn g w" href="#/panel">Panele dön</a>
+   <button class="btn s w" data-a="othermodel">${ic('clock')}Daha hızlı (Uygun) kaliteyle dene</button>
+   <a class="btn g w" href="#/panel">Ana sayfaya dön</a>
   </div>
   <p class="small dim" style="margin-top:14px">Sorun devam ederse destek ekibimiz yardımcı olur: destek@urunvideo.app</p>
  </div>`};
 };
-
 V.gecmis=()=>{
  bar('');
- const f=S.filter; const list=VIDEOS.filter(v=>f==='all'||v.st===f);
- return {top:topbar(),html:`<h1 class="h1">Videolarım</h1><p class="sub">${VIDEOS.length} video • bu ay 7 video ürettin</p>
-  <div class="chips" style="margin:16px 0 18px">${[['all','Tümü'],['ok','Hazır'],['run','Üretiliyor'],['err','İade edilen']].map(o=>`<button class="chip ${f===o[0]?'on':''}" data-a="filter" data-v="${o[0]}">${o[1]}</button>`).join('')}</div>
+ const all=S.newUser?[]:VIDEOS; const f=S.filter; const list=all.filter(v=>f==='all'||v.st===f);
+ return {top:topbar(),html:`<h1 class="h1">Videolarım</h1><p class="sub">${all.length} video${all.length?' • bu ay 7 video ürettin':''}</p>
+  <div class="chips" style="margin:16px 0 18px">${[['all','Tümü'],['ok','Hazır'],['run','Üretiliyor'],['err','Kredisi geri yüklenen']].map(o=>`<button class="chip ${f===o[0]?'on':''}" data-a="filter" data-v="${o[0]}">${o[1]}</button>`).join('')}</div>
   <div class="hgrid">${list.map(thumb).join('')||'<p class="muted">Bu filtrede video yok.</p>'}</div>`};
 };
-
 V.kredi=()=>{
  bar('');
  const y=S.billing==='yil';
- const plans=[
-  {n:'Başlangıç',p:y?249:299,k:'500',f:['Ayda ≈ 10 video (15 sn)','Ekonomik ve Dengeli modeller','720p kalite','Türkçe seslendirme']},
-  {n:'Pro',p:y?579:699,k:'2.000',pop:1,cur:1,f:['Ayda ≈ 40 video (15 sn)','Tüm modeller','1080p kalite, 4 versiyon','Öncelikli üretim sırası']},
-  {n:'İşletme',p:y?1249:1499,k:'5.000',f:['Ayda ≈ 100 video (15 sn)','Tüm modeller + Premium','Logo ve marka renkleri','Öncelikli destek']}
- ];
- return {top:topbar(),html:`<h1 class="h1">Kredi & abonelik</h1><p class="sub">Aylık planla başla, kredin biterse ek paket al.</p>
-  <div class="bal" style="margin-top:18px"><div class="row between" style="flex-wrap:wrap;gap:8px"><span class="small muted">Mevcut bakiye</span><span class="tag acc">Pro • 1 Aralık'ta yenilenir</span></div>
-   <div class="num">${fmt(S.balance)}<small>kredi</small></div><div class="meter"><i style="width:62%"></i></div><div class="small dim">1 kredi ≈ ₺0,78 (örnek)</div></div>
+ const cur=planOf();
+ return {top:topbar(),html:`<h1 class="h1">Kredi & abonelik</h1><p class="sub">Videolar kredi ile üretilir. Bir videonun tutarını her zaman üretmeden önce görürsün.</p>
+  <div class="bal" style="margin-top:18px"><div class="row between" style="flex-wrap:wrap;gap:8px"><span class="small muted">Bakiyen</span><span class="tag acc">${cur?cur.n+' • 1 Aralık’ta yenilenir':'Deneme'}</span></div>
+   <div class="num">${fmt(S.balance)}<small>kredi</small></div><div class="small muted">${S.free?'İlk videon ücretsiz — kredi gerekmez':'≈ '+vids(S.balance)+' video (Önerilen kalite, 15 sn)'}</div></div>
   <div class="sec"><div class="sec-h"><h3>Planlar</h3><span class="tag ornek">Örnek fiyatlar</span></div>
-   <div class="seg" style="max-width:320px;margin-bottom:14px"><button class="${!y?'on':''}" data-a="bill" data-v="ay">Aylık</button><button class="${y?'on':''}" data-a="bill" data-v="yil">Yıllık <span class="tag ok" style="padding:1px 6px">-%17</span></button></div>
-   <div class="plans">${plans.map(p=>`<div class="plan ${p.pop?'pop':''}">${p.cur?'<span class="cur tag acc">Mevcut planın</span>':''}<h3 style="font-size:16px">${p.n}</h3><div class="pp">₺${fmt(p.p)}<small> /ay</small></div><div class="small muted">Her ay ${p.k} kredi${y?' • yıllık ödenir':''}</div>
+   <div class="seg" style="max-width:340px;margin-bottom:14px"><button class="${!y?'on':''}" data-a="bill" data-v="ay">Aylık</button><button class="${y?'on':''}" data-a="bill" data-v="yil">Yıllık <span class="tag ok" style="padding:1px 6px">%${YEAR_OFF*100} indirim</span></button></div>
+   <div class="plans">${PLANS.map(p=>{const mo=y?Math.round(p.p*(1-YEAR_OFF)):p.p;const one=Math.round(REF_COST*mo/p.k);const isCur=cur&&cur.id===p.id;
+    return `<div class="plan ${p.pop?'pop':''}">${isCur?'<span class="cur tag acc">Mevcut planın</span>':p.pop?'<span class="cur tag">En çok seçilen</span>':''}<h3 style="font-size:16px">${p.n}</h3>
+    <div class="pp">${y?'₺'+fmt(mo*12)+'<small> /yıl</small>':'₺'+fmt(p.p)+'<small> /ay</small>'}</div>
+    <div class="yr">${y?'Ayda ₺'+fmt(mo)+', %'+YEAR_OFF*100+' indirimli, tek seferde ödenir':'Yıllık alırsan ayda ₺'+fmt(Math.round(p.p*(1-YEAR_OFF)))}</div>
+    <div style="margin-top:12px;padding:10px 12px;border-radius:12px;background:var(--bg2);border:1px solid var(--line)"><b style="font-size:14px">Ayda ≈ ${vids(p.k)} video</b><div class="small muted">Her ay ${fmt(p.k)} kredi • bir 15 sn video ≈ ₺${fmt(one)}</div></div>
     <ul>${p.f.map(x=>`<li>${ic('check')}${x}</li>`).join('')}</ul>
-    <button class="btn ${p.cur?'s':'s'} w" data-a="toast" data-v="${p.cur?'Bu zaten mevcut planın':'Ödeme sayfası açılıyor (prototip)'}" ${p.cur?'style="opacity:.55"':''}>${p.cur?'Mevcut plan':'Bu plana geç'}</button></div>`).join('')}</div></div>
+    <button class="btn s w" data-a="toast" data-v="${isCur?'Bu zaten mevcut planın':'Ödeme sayfası açılıyor (prototip)'}" ${isCur?'style="opacity:.55"':''}>${isCur?'Mevcut plan':'Bu plana geç'}</button></div>`}).join('')}</div>
+   <p class="note" style="margin-top:10px">Fiyatlara KDV dahildir (örnek). Aylık plan kredisi ay sonunda bir sonraki aya devretmez (örnek); ek paket kredileri süresizdir ve önce plan kredin kullanılır. “≈ video” hesabı Önerilen kalite, 15 sn, sesli ve müzikli videoya (48 kredi) göredir; daha net kalite, Full HD veya ek versiyon daha çok kredi kullanır.</p></div>
   <div class="sec"><div class="sec-h"><h3>Ek kredi paketleri</h3><span class="tag ornek">Örnek fiyatlar</span></div>
-   <div class="packs">${[['250','₺229',''],['750','₺629','+%10 hediye'],['2.000','₺1.499','+%20 hediye']].map((k,i)=>`<button class="pack ${i===1?'on':''}" data-a="toast" data-v="${k[0]} kredi • ${k[1]} — ödeme açılıyor (prototip)"><div class="cn">${k[0]}</div><div class="small dim">kredi</div><div class="tl2">${k[1]}</div><div class="bonus">${k[2]}</div></button>`).join('')}</div>
-   <p class="small dim" style="margin-top:8px">Ek paket kredileri süresizdir; önce plan kredilerin kullanılır.</p></div>
+   <div class="packs">${PACKS.map((k,i)=>`<button class="pack ${i===1?'on':''}" data-a="toast" data-v="${fmt(k.k+k.b)} kredi • ₺${fmt(k.p)} — ödeme açılıyor (prototip)"><div class="cn">${fmt(k.k+k.b)}</div><div class="small dim">kredi</div><div class="tl2">₺${fmt(k.p)}</div><div class="bonus">${k.b?fmt(k.k)+' + '+fmt(k.b)+' hediye':'&nbsp;'}</div><div class="small dim">≈ ${vids(k.k+k.b)} video</div></button>`).join('')}</div>
+   <p class="note" style="margin-top:8px">Hediye krediler pakete eklenir (ör. 300 yerine 330 kredi). KDV dahil (örnek).</p></div>
   <div class="sec lower">
    <div class="card pay"><h3 style="font-size:15px">Nasıl ödenir?</h3>
-    <div class="payrow"><span class="ic" style="color:#4f8cff">iyzico</span><div><b style="font-size:13.5px">Web sitesinde: iyzico ile güvenli ödeme</b><div class="small muted">Kredi/banka kartı, taksit seçenekleri</div></div></div>
-    <div class="payrow"><span class="ic">${ic('phone')}</span><div><b style="font-size:13.5px">Mobil uygulamada: App Store / Google Play</b><div class="small muted">Mağaza üzerinden ödenir; mağaza komisyonu nedeniyle fiyatlar farklı olabilir.</div></div></div>
+    <div class="payrow"><span class="ic" style="color:#4f8cff">iyzico</span><div><b style="font-size:13.5px">Web sitesinde: iyzico ile TL ödeme</b><div class="small muted">Kredi/banka kartı, taksit seçenekleri</div></div></div>
+    <div class="payrow"><span class="ic">${ic('phone')}</span><div><b style="font-size:13.5px">Mobil uygulamada: App Store / Google Play</b><div class="small muted">Mağaza üzerinden ödenir. Mağaza kesintisi nedeniyle fiyat farklı olabilir; örneğin Pro plan mobilde ≈ ₺2.399 olabilir (örnek).</div></div></div>
    </div>
    <div class="card ledger"><h3 style="font-size:15px;margin-bottom:4px">Kredi hareketleri</h3>
-    ${[['Bloke','Örgü Tote Çanta • üretiliyor','−62','warn','lock','Bugün'],['Düşüm','Seramik Kupa – Okyanus','−48','acc','arrdown','Bugün'],['İade','Gümüş Damla Kolye • üretilemedi','+186','ok','refund','12 Kas'],['Yükleme','Pro plan aylık kredisi','+2.000','ok','arrup','1 Kas']].map(l=>`<div class="li"><span class="ic" style="background:${l[3]==='ok'?'rgba(74,222,128,.1);color:var(--ok)':l[3]==='warn'?'rgba(251,191,36,.1);color:var(--warn)':'var(--accSoft);color:var(--acc)'}">${ic(l[4])}</span><div><b>${l[0]}</b><span>${l[1]} • ${l[5]}</span></div><span class="amt" style="color:${l[2][0]==='+'?'var(--ok)':'var(--text)'}">${l[2]}</span></div>`).join('')}
-   </div></div>`};
+    ${[...(S.lastCost?[['Kullanıldı','Seramik Kupa – Okyanus','−'+S.lastCost,'acc','arrdown','Az önce']]:[]),['Ayrıldı','Örgü Tote Çanta • üretiliyor','−62','warn','lock','Bugün'],['Geri yüklendi','Gümüş Damla Kolye • video oluşmadı','+186','ok','refund','12 Kas'],['Plan kredisi','Pro plan aylık kredisi','+800','ok','arrup','1 Kas']].map(l=>`<div class="li"><span class="ic" style="background:${l[3]==='ok'?'rgba(74,222,128,.1);color:var(--ok)':l[3]==='warn'?'rgba(251,191,36,.1);color:var(--warn)':'var(--accSoft);color:var(--acc)'}">${ic(l[4])}</span><div><b>${l[0]}</b><span>${l[1]} • ${l[5]}</span></div><span class="amt" style="color:${l[2][0]==='+'?'var(--ok)':'var(--text)'}">${l[2]}</span></div>`).join('')}
+   </div></div>
+  <p class="note sec" style="margin-top:18px">Tüm fiyatlar örnektir. Nihai tarife, yapay zekâ maliyetine göre yayından önce belirlenecek.</p>`};
 };
-V.profil=()=>{bar('');return {top:topbar(),html:`<h1 class="h1">Hesabım</h1><p class="sub">Bu ekran ilk prototipin kapsamında değil.</p><div class="card sec">${[['Mağaza adı','Gök Seramik'],['E-posta','ornek@magaza.com'],['Varsayılan dil','Türkçe'],['Bildirimler','Açık']].map(r=>`<div class="row between" style="padding:12px 0;border-bottom:1px solid var(--line)"><span class="muted">${r[0]}</span><span>${r[1]}</span></div>`).join('')}</div>`}};
+V.profil=()=>{bar('');return {top:topbar(),html:`<h1 class="h1">Hesabım</h1><p class="sub">Bu ekran ilk prototipin kapsamında değil.</p><div class="card sec">${[['Mağaza adı',S.user.store],['E-posta','ornek@magaza.com'],['Varsayılan dil','Türkçe'],['Bildirimler','Açık']].map(r=>`<div class="row between" style="padding:12px 0;border-bottom:1px solid var(--line)"><span class="muted">${r[0]}</span><span>${esc(r[1])}</span></div>`).join('')}</div>`}};
+V.kayit=()=>{
+ bar('');
+ const q=new URLSearchParams((location.hash.split('?')[1]||''));
+ const link=q.get('link')||'';
+ return {top:'',html:`<div class="auth-wrap">
+  <a class="brand" href="tanitim.html">${LOGO}${BRAND}</a>
+  <div class="card" style="padding:22px">
+   <span class="free">${ic('gift')} İlk videon ücretsiz</span>
+   <h1 class="h1" style="margin-top:12px">Hesabını aç, <em>ilk videon</em> bizden</h1>
+   <p class="sub">Bir dakikada kayıt ol, ilk ürün videonu ücretsiz üret.</p>
+   <div class="benefits"><div>${ic('check')}Senaryoyu görmek ücretsiz</div><div>${ic('check')}Video oluşmazsa kredi geri yüklenir</div><div>${ic('check')}Türkçe ses ve altyazı</div></div>
+   <button class="btn s w" style="margin-top:14px" data-a="signup"><svg viewBox="0 0 24 24" width="18" height="18"><path fill="#4285F4" d="M22 12.2c0-.7-.1-1.4-.2-2H12v3.9h5.6a4.8 4.8 0 0 1-2.1 3.1v2.6h3.4c2-1.8 3.1-4.5 3.1-7.6z"/><path fill="#34A853" d="M12 22.5c2.8 0 5.2-.9 6.9-2.5l-3.4-2.6c-.9.6-2.1 1-3.5 1-2.7 0-5-1.8-5.8-4.3H2.7v2.7A10.5 10.5 0 0 0 12 22.5z"/><path fill="#FBBC05" d="M6.2 14.1a6.3 6.3 0 0 1 0-4.2V7.2H2.7a10.5 10.5 0 0 0 0 9.6z"/><path fill="#EA4335" d="M12 5.6c1.5 0 2.9.5 4 1.6l3-3A10.5 10.5 0 0 0 2.7 7.2l3.5 2.7C7 7.4 9.3 5.6 12 5.6z"/></svg>Google ile devam et</button>
+   <div class="divider">veya e-posta ile</div>
+   <label class="field"><span>Adın</span><input class="inp" id="su-name" placeholder="Örn: Ayşe Yılmaz" autocomplete="name"></label>
+   <label class="field"><span>E-posta</span><input class="inp" id="su-mail" type="email" placeholder="ornek@magaza.com" autocomplete="email"></label>
+   <label class="field"><span>Ürün linkin (isteğe bağlı)</span><input class="inp" id="su-link" value="${esc(link)}" placeholder="trendyol.com/… ürün linki" inputmode="url"></label>
+   <label class="check"><input type="checkbox" id="su-kvkk" checked><span><a href="tanitim.html#kvkk" style="text-decoration:underline">KVKK aydınlatma metnini</a> okudum. Videonun üretilmesi için fotoğraflarımın yurt dışındaki yapay zekâ servislerine gönderileceğini biliyorum.</span></label>
+   <button class="btn p w" style="margin-top:16px" data-a="signup">Hesap oluştur ve ilk videonu yap ${ic('chev')}</button>
+   <p class="small dim" style="text-align:center;margin-top:12px">Zaten hesabın var mı? <a href="#/panel" class="acc" style="font-weight:600">Giriş yap</a></p>
+  </div>
+  <p class="small dim" style="text-align:center;margin-top:14px"><a href="tanitim.html">← Tanıtım sayfasına dön</a></p>
+ </div>`};
+};
 
 let last='';
+function applyQuery(r,q){
+ const d=q.get('durum');
+ if(r==='urun'&&d==='linkhata'){S.tab='link';S.link='https://www.ornekmagaza.net/urun/kupa-123';S.fetched=false;S.linkErr=true;S.fetching=false}
+ if(r==='ayarlar'&&d==='kredi'){S.free=false;S.model='pre';S.res='1080p';S.dur=30;S.ver=1;S.open=true}
+}
 function render(){
- const r=(location.hash.replace('#/','')||'panel').split('?')[0];
- const fn=V[r]||V.panel;
+ const [r0,qs]=(location.hash.replace('#/','')||'panel').split('?');
+ const r=V[r0]?r0:'panel';
+ if(qs&&last!==location.hash) applyQuery(r,new URLSearchParams(qs));
  shell(r);
- const o=fn();
+ const o=V[r]();
  document.getElementById('top').innerHTML=o.top;
- document.getElementById('view').innerHTML=`<div class="view" ${r===last?'style="animation:none"':''}>${o.html}</div>`;
- if(r!==last) window.scrollTo(0,0);
- last=r;
+ document.getElementById('view').innerHTML=`<div class="view" ${location.hash===last?'style="animation:none"':''}>${o.html}</div>`;
+ if(location.hash!==last) window.scrollTo(0,0);
+ last=location.hash;
  bindAfter();
 }
+let fetchT;
 function bindAfter(){
  const d=document.getElementById('dur');
- if(d) d.oninput=()=>{S.dur=+d.value;d.style.setProperty('--p',((S.dur-4)/26*100)+'%');document.getElementById('durv').textContent=S.dur+' sn';updPrice(true)};
+ if(d){d.oninput=()=>{S.dur=+d.value;d.style.setProperty('--p',((S.dur-4)/26*100)+'%');document.getElementById('durv').textContent=S.dur+' sn';updPrice()};
+  d.onchange=()=>render();}
  document.querySelectorAll('[data-m]').forEach(el=>el.oninput=()=>{const k=el.dataset.m.split('.');if(k.length>1)S[k[0]][k[1]]=el.value;else S[k[0]]=el.value});
- const l=document.getElementById('link'); if(l) l.oninput=()=>S.link=l.value;
- ['file','file2'].forEach(id=>{const f=document.getElementById(id);if(f)f.onchange=()=>{[...f.files].slice(0,6).forEach(file=>{const rd=new FileReader();rd.onload=ev=>{S.uploads.push(ev.target.result);render()};rd.readAsDataURL(file)})}});
+ const l=document.getElementById('link');
+ if(l){
+  l.onpaste=()=>setTimeout(()=>{S.link=l.value.trim();doFetch()},0);
+  l.oninput=()=>{S.link=l.value.trim();clearTimeout(fetchT);if(/^(https?:\/\/)?[\w-]+(\.[\w-]+)+\/\S+/.test(S.link))fetchT=setTimeout(doFetch,700)};
+ }
+ ['file','file2'].forEach(id=>{const f=document.getElementById(id);if(f)f.onchange=()=>{S.tab='foto';[...f.files].slice(0,5-S.uploads.length).forEach(file=>{const rd=new FileReader();rd.onload=ev=>{if(S.uploads.length<5)S.uploads.push(ev.target.result);render()};rd.readAsDataURL(file)})}});
 }
-function updPrice(full){
- const c=price(); const m=MODELS.find(x=>x.id===S.model);
- const b=document.getElementById('barc'); if(b){b.textContent=c+' kredi';b.classList.remove('bump');void b.offsetWidth;b.classList.add('bump')}
- const bl=document.getElementById('barl'); if(bl) bl.textContent=`${m.tier} • ${S.dur} sn • ${S.res}${S.ver>1?' • '+S.ver+' versiyon':''}`;
- const s=document.getElementById('sumc'); if(s){s.firstChild.textContent=c+' '}
- if(full){document.querySelectorAll('.summary .row.between.small').forEach(r=>{if(r.firstChild.textContent==='Süre')r.lastChild.textContent=S.dur+' saniye'})}
+function updPrice(){
+ const c=cost();
+ document.querySelectorAll('.js-c').forEach(e=>{e.textContent=c;e.classList.remove('bump');void e.offsetWidth;e.classList.add('bump')});
+ document.querySelectorAll('.js-tl').forEach(e=>e.textContent=tl(c));
+ document.querySelectorAll('.js-dur').forEach(e=>e.textContent=S.dur);
+ document.querySelectorAll('.js-q').forEach(e=>e.textContent=rawPrice(e.dataset.m));
 }
-function toast(t){const e=document.getElementById('toast');e.textContent=t;e.classList.add('show');clearTimeout(e._t);e._t=setTimeout(()=>e.classList.remove('show'),2200)}
+function toast(t){const e=document.getElementById('toast');e.textContent=t;e.classList.add('show');clearTimeout(e._t);e._t=setTimeout(()=>e.classList.remove('show'),2400)}
+function regenModal(){
+ const c=rawPrice();
+ if(c>S.balance) return modal(`<h3>Kredin yetmiyor</h3><p>Tekrar üretmek ${c} kredi kullanır, bakiyen ${fmt(S.balance)} kredi.</p><div class="acts2"><button class="btn s" data-a="mclose">Vazgeç</button><a class="btn p" href="#/kredi" data-a="mclose">Kredi yükle</a></div>`);
+ modal(`<h3>Tekrar üretilsin mi?</h3><p>Tekrar üretmek <b style="color:#fff">${c} kredi daha</b> kullanır. Bakiyen: ${fmt(S.balance)} kredi. İlk video silinmez.</p><div class="acts2"><button class="btn s" data-a="mclose">Vazgeç</button><button class="btn p" data-a="regenok">Evet, ${c} kredi kullan</button></div>`);
+}
 document.addEventListener('click',e=>{
  if(!e.target.closest('#dev')) document.getElementById('dev').classList.remove('open');
- if(!e.target.closest('#tpick')){const tp=document.getElementById('tpick');tp&&tp.classList.remove('open')}
  const t=e.target.closest('[data-a]'); if(!t) return;
  const a=t.dataset.a, v=t.dataset.v;
- if(a==='tpick'){document.getElementById('tpick').classList.toggle('open');return}
- if(a==='theme'){setTheme(v);render();toast('Tema: '+THEMES.find(x=>x.id===v).n);return}
+ if(a==='mclose'){if(t.classList.contains('modal')&&e.target!==t)return;modal('');return}
+ if(a==='theme'){setTheme(v);render();return}
  if(a==='dev'){document.getElementById('dev').classList.toggle('open');return}
  if(a==='go'){location.hash='#/'+v;return}
  if(a==='tabgo'){S.tab=v;return}
  if(a==='tab'){S.tab=v;render();return}
- if(a==='paste'){S.link='https://www.trendyol.com/gokseramik/el-yapimi-seramik-kupa-okyanus-p-748213';render();return}
- if(a==='fetch'){if(!S.link)S.link='https://www.trendyol.com/gokseramik/el-yapimi-seramik-kupa-okyanus-p-748213';S.fetching=true;S.fetched=false;render();setTimeout(()=>{S.fetching=false;S.fetched=true;if(location.hash==='#/urun')render()},1300);return}
+ if(a==='paste'){S.link='https://www.trendyol.com/gokseramik/el-yapimi-seramik-kupa-okyanus-p-748213';doFetch();return}
+ if(a==='refetch'){doFetch();return}
  if(a==='demoup'){S.uploads=['ocean','sand','sage'];S.img=0;render();return}
  if(a==='img'){S.img=+v;render();return}
  if(a==='style'){S.style=v;render();return}
  if(a==='bchip'){S.briefChips=S.briefChips.includes(v)?S.briefChips.filter(x=>x!==v):[...S.briefChips,v];render();return}
- if(a==='listen'){e.stopPropagation();toast('🔊 Ses örneği çalınıyor…');return}
- if(a==='set'){S[t.dataset.k]=v;render();updPrice();return}
+ if(a==='listen'){e.stopPropagation();e.preventDefault();toast('🔊 Ses örneği çalınıyor…');return}
+ if(a==='set'){S[t.dataset.k]=v;render();return}
+ if(a==='open'){S.open=!S.open;render();return}
+ if(a==='openset'){S.open=true;return}
+ if(a==='adv'){S.adv=!S.adv;render();return}
  if(a==='subs'){S.subs=!S.subs;render();return}
- if(a==='ver'){S.ver=Math.max(1,Math.min(4,S.ver+ +v));render();updPrice();return}
- if(a==='rewrite'){toast('✍️ Senaryo yeniden yazılıyor…');document.querySelectorAll('.scene').forEach((s,i)=>{s.style.transition='opacity .3s';s.style.opacity=.35;setTimeout(()=>s.style.opacity=1,500+i*150)});return}
- if(a==='produce'){location.hash='#/uretim';return}
- if(a==='regen'){S.curVer=0;location.hash='#/uretim';return}
- if(a==='othermodel'){S.model='eko';location.hash='#/uretim';return}
+ if(a==='ver'){S.ver=Math.max(1,Math.min(4,S.ver+ +v));render();return}
+ if(a==='rewrite'){toast('✍️ Senaryo ücretsiz olarak yeniden yazılıyor…');document.querySelectorAll('.scene').forEach((s,i)=>{s.style.transition='opacity .3s';s.style.opacity=.35;setTimeout(()=>s.style.opacity=1,500+i*150)});return}
+ if(a==='produce'){if(short()){location.hash='#/kredi';return}S.job={cost:cost(),free:freeOk(),charged:false};location.hash='#/uretim';return}
+ if(a==='regen'){regenModal();return}
+ if(a==='regenok'){modal('');S.curVer=0;S.job={cost:rawPrice(),free:false,charged:false};location.hash='#/uretim';return}
+ if(a==='othermodel'){S.model='eko';S.job={cost:cost(),free:freeOk(),charged:false};location.hash='#/uretim';return}
  if(a==='cver'){S.curVer=+v;render();return}
  if(a==='filter'){S.filter=v;render();return}
  if(a==='bill'){S.billing=v;render();return}
+ if(a==='signup'){const n=(document.getElementById('su-name')||{}).value||'';const lk=((document.getElementById('su-link')||{}).value||'').trim();
+  S.newUser=true;S.free=true;S.balance=0;S.plan=null;S.lastCost=0;S.user={name:(n.trim().split(' ')[0]||'Hoş geldin'),full:n.trim()||'Yeni satıcı',store:'Mağazam'};
+  S.model='den';S.dur=15;S.res='720p';S.ver=1;S.fetched=false;S.linkErr=false;S.uploads=[];S.tab='link';S.link=lk;
+  location.hash='#/urun';if(lk)setTimeout(doFetch,300);toast('Hoş geldin! İlk videon ücretsiz 🎁');return}
  if(a==='toast'){toast(v);return}
 });
 window.addEventListener('hashchange',()=>{if(location.hash==='#/uretim'){S.prog=0;S.phase=0;render();runProd()}else render()});
